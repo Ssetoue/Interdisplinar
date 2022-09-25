@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700%27");
+
+body {
+	background-color:#f2f2f2;
+}
+
+.navbar {
+	background-color:#ffffff;
+	margin-top: -8px;
+	margin-left: -8px;
+	position: absolute;
+	width: 100%;
+	height: 15%;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	min-height: 80px;
+}
+
+#engrenagem {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	top: 30%;
+	left: 2%
+}
+
+#perfil {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	top: 30%;
+	right: 2%
+}
+
+.form {
+	box-sizing: border-box;
+
+	position: absolute;
+	width: 410px;
+	height: 390px;
+	left: 34.5%;
+	top: 25%;
+
+	background: #FFFFFF;
+	border: 1px solid #000000;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 29px;
+}
+
+.form p {
+	font-size: 200%;
+	margin-left: 12.5%;
+	margin-top: 5%;
+}
+
+.CPFInput{
+	position: absolute;
+	width: 61%;
+	height: 12%;
+	left: 12.5%;
+	top: 14%;
+}
+
+#CPF {
+	width: 100%;
+	height: 100%;
+	
+	background: #D9D9D9;
+	border-style:none;
+	border-radius: 10px;
+	
+	position: left;
+	padding-left: 18%;
+}
+
+#userIcon {
+	position: absolute;
+	width: 10%;
+	height: 50%;
+	top: 24%;
+	left: 5%;
+	opacity: 30%;
+}
+
+.passwordInput{
+	position: absolute;
+	width: 61%;
+	height: 12%;
+	left: 12.5%;
+	top: 37%;
+}
+
+#Senha {
+	width: 100%;
+	height: 100%;
+	
+	background: #D9D9D9;
+	border-style:none;
+	border-radius: 10px;
+
+	background-color: rgba(0,0,0,);
+	background-position-y: 50%;
+	background-position-x: 2%;
+	position: left;
+	padding-left: 18%;
+}
+
+.CheckBox {
+	position: absolute;
+	width: 100%;
+	height: 12%;
+	left: 12.5%;
+	top: 55%;
+}
+
+#rememberMeText {
+	font-size: 80%;
+}
+
+#keyIcon {
+	position: absolute;
+	width: 9%;
+	height: 50%;
+	top: 24%;
+	left: 5%;
+	opacity: 40%;
+}
+
+#allSeeingEye {
+	position: absolute;
+	width: 10%;
+	height: 50%;
+	top: 27%;
+	left: 105%;
+	opacity: 40%;
+}
+
+#button {
+	background-color: #73d876;
+	border-style: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 15px;
+
+	position: absolute;
+	width: 51%;
+	height: 15%;
+	left: 23%;
+	top: 71%;
+}
+  
+#button:hover {
+	background-color: #358538;
+}
+
+#forgotPass {
+	position: absolute;
+	left: 32%;
+	top: 90%;
+
+	font-size:80%;
+
+	color: rgb(81, 169, 223);
+}
