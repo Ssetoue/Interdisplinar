@@ -20,7 +20,7 @@ body {
 	width: 30px;
 	height: 30px;
 	top: 30%;
-	left: 2%
+	left: 3%
 }
 
 #perfil {
@@ -28,7 +28,7 @@ body {
 	width: 30px;
 	height: 30px;
 	top: 30%;
-	right: 2%
+	right: 3%
 }
 
 .form {
@@ -74,8 +74,8 @@ body {
 
 #userIcon {
 	position: absolute;
-	width: 10%;
-	height: 50%;
+	width: 23px;
+	height: 23px;
 	top: 24%;
 	left: 5%;
 	opacity: 30%;
@@ -118,8 +118,8 @@ body {
 
 #keyIcon {
 	position: absolute;
-	width: 9%;
-	height: 50%;
+	width: 23px;
+	height: 23px;
 	top: 24%;
 	left: 5%;
 	opacity: 40%;
@@ -127,8 +127,8 @@ body {
 
 #allSeeingEye {
 	position: absolute;
-	width: 10%;
-	height: 50%;
+	width: 25px;
+	height: 23px;
 	top: 27%;
 	left: 105%;
 	opacity: 40%;
