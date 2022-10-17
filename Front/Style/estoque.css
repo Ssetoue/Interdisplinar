@@ -21,13 +21,13 @@ body {
    flex-direction: column;
 }
 
-@media only screen and (max-height: 768px) {
+@media only screen and (max-height: 918px) {
    .lateralBar {
        position: absolute;
        left: 0px;
        top: 0px;
        width: 267px;
-       height: 768px;
+       height: 918px;
        background-color: #313131;
        flex-direction: column;
    }
@@ -87,6 +87,12 @@ body {
    text-decoration: underline;
 }
 
+#home:hover {
+   position: absolute;
+   top: 264px;
+   width: 81%;
+}
+
 /* botão cadastrar */
 #cadastrar {
    position: absolute;
@@ -122,6 +128,12 @@ body {
 
 #cadastrarButton:hover {
    text-decoration: underline;
+}
+
+#cadastrar:hover {
+   position: absolute;
+   top: 348px;
+   width: 81%;
 }
 
 /* botão estoque */
@@ -161,6 +173,12 @@ body {
    text-decoration: underline;
 }
 
+#estoque:hover {
+   position: absolute;
+   top: 433px;
+   width: 81%;
+}
+
 /* botão informação */
 #informacao {
    position: absolute;
@@ -197,6 +215,13 @@ body {
 #informacaoButton:hover {
    text-decoration: underline;
 }
+
+#informacao:hover {
+   position: absolute;
+   top: 518px;
+   width: 81%;
+}
+
 
 /* abaixo está tudo do lado direito incluindo navbar */
 .body {
@@ -308,6 +333,13 @@ body {
    color: #FFFFFF;
    text-shadow: 5px 5px 3px #7DA97E;
    cursor: pointer;
+   transition: 0.5s;
+}
+#atualizar:hover{
+margin-top: 5%;
+margin-left: 30.8%;
+transition: 0.5s;
+box-shadow: #313131;
 }
 #consultar{
    position: absolute;
@@ -320,4 +352,11 @@ body {
    color: #FFFFFF;
    text-shadow: 5px 5px 3px #7DA97E;
    cursor: pointer;
+   transition: 0.5s;
 }
+#consultar:hover{
+   margin-top: 35%;
+   margin-left: 30.8%;
+   transition: 0.5s;
+   box-shadow: #313131;
+   }
