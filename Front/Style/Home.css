@@ -1,0 +1,366 @@
+body {
+    max-width:100%;
+    margin-left:0;
+}
+
+.principal {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+}
+
+.lateralBar {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 267px;
+    height: 100%;
+    background-color: #313131;
+    flex-direction: column;
+}
+
+@media only screen and (max-height: 768px) {
+    .lateralBar {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 267px;
+        height: 768px;
+        background-color: #313131;
+        flex-direction: column;
+    }
+}
+
+#logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 197px;
+    height: 197px;
+}
+
+#linha_vertical {
+    position: absolute;
+    left: 90%;
+    top: 0px;
+    width: 19px;
+    height: 100%;
+    background-color: #7da97e;
+}
+
+/* botão home */
+#home {
+    position: absolute;
+    top: 265px;
+    width: 80%;
+    height: 60px;
+    background-color: #7da97e;
+    box-shadow: 6px 5px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 0px 10px 10px 0px;
+    border: none;
+    cursor: pointer;
+}
+
+#homeImg {
+    position: absolute;
+    left: 10%;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+#homeButton {
+    position: absolute;
+    left: 46%;
+    top: 0%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 16px;
+    text-align: center;
+}
+
+#homeButton:hover {
+    text-decoration: underline;
+}
+
+/* botão cadastrar */
+#cadastrar {
+    position: absolute;
+    top: 350px;
+    width: 80%;
+    height: 60px;
+    background-color: #7da97e;
+    box-shadow: 6px 5px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 0px 10px 10px 0px;
+    border: none;
+    cursor: pointer;
+}
+
+#cadastrarImg {
+    position: absolute;
+    left: 10%;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+#cadastrarButton {
+    position: absolute;
+    left: 46%;
+    top: 0%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 16px;
+    text-align: center;
+}
+
+#cadastrarButton:hover {
+    text-decoration: underline;
+}
+
+/* botão estoque */
+#estoque {
+    position: absolute;
+    top: 435px;
+    width: 80%;
+    height: 60px;
+    background-color: #7da97e;
+    box-shadow: 6px 5px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 0px 10px 10px 0px;
+    border: none;
+    cursor: pointer;
+}
+
+#estoqueImg {
+    position: absolute;
+    left: 10%;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+#estoqueButton {
+    position: absolute;
+    left: 46%;
+    top: 0%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 16px;
+    text-align: center;
+}
+
+#estoqueButton:hover {
+    text-decoration: underline;
+}
+
+/* botão informação */
+#informacao {
+    position: absolute;
+    top: 520px;
+    width: 80%;
+    height: 60px;
+    background-color: #7da97e;
+    box-shadow: 6px 5px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 0px 10px 10px 0px;
+    border: none;
+    cursor: pointer;
+}
+
+#informacaoImg {
+    position: absolute;
+    left: 10%;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+#informacaoButton {
+    position: absolute;
+    left: 46%;
+    top: 0%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 16px;
+    text-align: center;
+}
+
+#informacaoButton:hover {
+    text-decoration: underline;
+}
+
+/* abaixo está tudo do lado direito incluindo navbar */
+.body {
+    background-size: cover;
+    position: absolute;
+    left: 267px;
+    height: 100%;
+    width: calc(100% - 267px);
+}
+
+.navbar {
+    background-size: cover;
+    position: absolute;
+    background-color:#ffffff;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    height: 110px;
+    margin: 0 auto;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    min-height: 80px;
+}
+
+@media only screen and (max-width: 1360px) {
+    .navbar {
+        width: calc(1320px - 270px);
+    }
+}
+
+#engrenagem { 
+    position: absolute;
+    Width: 38px;
+    Height: 38px;
+    top: 35px;
+    left: 32px;
+}
+
+#perfil {
+    position: absolute;
+    Width: 38px;
+    Height: 38px;
+    top: 35px;
+    right: 3%
+}
+
+@media only screen and (max-width: 900px) {
+    #perfil {
+        position: absolute;
+        Width: 38px;
+        Height: 38px;
+        top: 35;
+        right: 70px
+    }
+}
+
+.searchBar {
+    position: absolute;
+    top: 32px;
+    left: 180px;
+    width: 300px;
+    height: 50px;
+}
+
+#searchIcon {
+    position: absolute;
+    Width: 33px;
+    Height: 33px;
+    top: 20%;
+    left: 8%;
+}
+
+#search {
+    position: absolute;
+    box-sizing: border-box;
+    width: 452px;
+    height: 50px;
+    border: 1px solid #000000;
+    border-radius: 36px;
+    padding-left: 35%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 39px;
+}
+.body button{
+    color: #FFFFFF;
+position: absolute;
+width: 156px;
+height: 38px;
+margin: 3.5% 0 0 75%;
+background: #313131;
+border-radius: 10px;
+cursor: pointer;
+}
+.body button:hover{
+    background: #000000;
+}
+/* abaixo está o cadastro */
+
+.bodyDiv {
+    position: absolute;
+    top: 110px;
+    width: calc(100% - 267px);
+    height: calc(100% - 110px);
+}
+.bem-vindo{
+text-align: center;
+position: absolute;
+width: 350px;
+height: 100px;
+margin: 15px 0 0 580px;
+background: rgba(30, 30, 30, 0.8);
+border-radius: 300px;
+}
+h2{
+position: absolute;
+width: 50%;
+height: 100px;
+font-family: 'Inter';
+font-style: italic;
+font-weight: 300;
+font-size: 50px;
+line-height: 80px;
+color: #FFFFFF;
+text-shadow: 5px 5px 3px #7DA97E;
+}
+.notes-info{
+    position: absolute;
+    width: 310px;
+    height: 200px;
+    margin: 125px  0 0 600px;
+    border-radius: 10px;
+    background:  rgba(30, 30, 30, 0.8);
+    box-shadow: 0px -4px 4px rgba(89, 89, 89, 0.25);
+}
+.notes-info h3{
+    height: 20%;
+    width: 60%;
+    text-align: center;
+    margin-left: 20%;
+    color: #FFFFFF;
+text-shadow: 5px 5px 3px #7DA97E;
+}
+table{
+    border-collapse: collapse;
+    text-align: center;
+    width: 80%;
+    margin-left: 12%;
+    margin-top: -20px;
+    color: #ffffff;
+}
+thead tr th{
+    border-bottom: 1px solid;   
+     padding-bottom: 2%;
+}
+tbody tr td{padding: 2%;}
+tbody tr:nth-child(even) {background-color: #7da97e85}
+button.cad-func{
+    margin: 25px 30% 0 70px;
+    width: 200px;
+    background: rgba(175, 221, 176, 0.8);
+    border-radius: 10px;
+}
+button.cad-func:hover{
+    transform: scale(1.5,1.5);
+}
