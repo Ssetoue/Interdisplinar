@@ -296,17 +296,35 @@ body {
     width: calc(100% - 267px);
     height: calc(100% - 110px);
 }
+#cabeca h3{
+    font-size: 50px;
+    margin: 10% 0 2px 0;
+}
+.style-title img{
+    width: 50px;
+    margin-right: 6px;
+}
+#cabeca{
+    display: flex;
+    width: 85%;
+    margin: 1% 0 2px 24%;
+}
+#cabeca p{
+    font-size: 15px;
+    margin: 9% 0 2px 350px;
+}
+.filtro img{width: 20px;}
+
 .consulta{
     position: absolute;
     width: 90%;
     margin-left: 22%;
-    margin-top: 15%;
     border: 1px solid #000000;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
     table{
        position: absolute;
-       margin-top: 17%;
+    margin-top: 2%;
        margin-left: 22%;
        width: 90%;
        height: 78%;
@@ -320,8 +338,10 @@ body {
     
     }
     thead th{
-       height: 80px;
+        width: 17.6%;
+       height: 76px;
        text-align: center;
+        font-size: 20px;
     }
     tbody tr{
     position: absolute;
@@ -331,11 +351,12 @@ body {
     border: 1px solid #000000;
     border-radius: 15px;
     margin-top: 15%;
+    text-align: center;
     }
     tbody tr td{
-       width: 18%;
+        width: 18.7%;
        height: 40px;
-       text-align: center;
+
     }
     .uno{
        margin-top: 16%;
