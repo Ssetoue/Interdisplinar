@@ -68,12 +68,13 @@
                             <p id="cadastro_placeholder_data">00/00/0000</p>
                         </div>
                     </div>
-    
+                 
+                    <div class="msg"></div>
                     <div class="code_produto">
                         <input id="code_produto_text" name="CPF" type="number">
                         <p id="code_produto_title">Código do Fornecedor</p>
                     </div>
-    
+                    <div class="msg"></div>
                     <div class="nome_produto">
                         <input id="nome_produto_text" name="Nome" type="text">
                         <p id="nome_produto_title">Nome de Fornecedor</p>
@@ -113,7 +114,35 @@
             </div>
         </div>
     </div>
+<script>
+    //Aqui começa a validação dos campos da tela de cadastro de fornecedor//
+   const cfornecedorInput = document.getElementById("code_produto_text")
+   const nfornecedorInput = document.getElementById("nome_produto_text")
+   const contatoInput = document.getElementById("valor_produto_text")
+   const nprodutoInput = document.getElementById("n-prod")
+   const submitButton = document.getElementById("confirmar_cadastro_button")
+   
+   const errorMessage = document.querySelector(".msg")
 
+    submitButton.addEventListener("click", (e) => {
+       e.preventDefault()
 
+       const codeValue = cfornecedorInput.value;
+       const nomeValue = nfornecedorInput.value;
+       const contatoValue = contatoInput.value;
+       const nameValue = nprodutoInput.value;
+
+        /*A parte abaixo é para aparecer uma mensagem no caso o usuário,
+  tente acessar o sistema sem colocar as suas informações*/
+
+       if(codeValue =="" || nomeValue =="" || contatoValue =="" || nameValue ==""){
+        errorMessage.textContent = "PARA TER ACESSO AO SISTEMA, DIGITE AS INFORMAÇÕES PEDIDAS !"
+        errorMessage.style.color = "white"
+        errorMessage.style.background = "red"
+        return;
+       }
+    })
+
+</script>
 </body>
 </html>

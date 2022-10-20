@@ -67,19 +67,26 @@
                     </div>
                 </div>
 
+            
+                 <div class="msg"></div>
                 <div class="nomeCompleto">
                     <input id="nome_completo_text" name="nomeCompleto" type="text">
                     <p id="nome_completo_title">Nome Completo</p>
+                   
+                    
                 </div>
-
+                  
+                <div class="msg"></div>
                 <div class="CPF">
                     <input id="CPF_text" name="CPF" type="text">
                     <p id="CPF_title">CPF</p>
+                    
                 </div>
 
                 <div class="senha">
                     <input id="senha_text" name="nomeCompleto" type="password">
                     <p id="senha_title">Senha</p>
+                    
                 </div>
 
                 <div class="funButton">
@@ -102,6 +109,34 @@
         </div>
     </div>
 
+<script> //Aqui começa a parte da validação dos campos da tela de cadastro de usuário//
+    
+    const nameInput = document.getElementById("nome_completo_text")
+    const cpfInput = document.getElementById("CPF_text")
+    const senhaInput = document.getElementById("senha_text")
+    const submitButton = document.getElementById("confirmar_cadastro_button")
+
+    const errorMessage = document.querySelector(".msg")
+    
+   submitButton.addEventListener("click",(e) =>  {
+    e.preventDefault()
+
+    const nameValue = nameInput.value;
+    const cpfValue =cpfInput.value;
+    const senhaValue = senhaInput.value;
+
+    /*A parte abaixo é para aparecer uma mensagem no caso o usuário,
+  tente acessar o sistema sem colocar as suas informações*/
+    
+  if(nameValue =="" || cpfValue =="" || senhaValue ==""){
+        errorMessage.textContent = "PARA TER ACESSO AO SISTEMA,DIGITE AS INFORMAÇÕES PEDIDAS !"
+        errorMessage.style.color = "white"
+        errorMessage.style.background = "red"
+        return;
+    }
+
+   })
+</script>
 
 </body>
 </html>
