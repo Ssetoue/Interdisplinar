@@ -426,7 +426,6 @@ body {
     display: flex;
     align-items: center;
     text-align: center;
-
     color: #000000;
 }
 
@@ -434,12 +433,10 @@ body {
     position: absolute;
     width: 127px;
     height: 44.05px;
-    
-    background: #AFDDB0;
+    background: #afddb075;
     border: 1px solid #111111;
     border-radius: 9px;
     font-size: 16px;
-
     appearance: none;
     margin: 0;
 }

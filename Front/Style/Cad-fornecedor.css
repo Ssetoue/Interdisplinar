@@ -341,18 +341,15 @@ body {
    height: 68px;
    top: 50px;
    left: 50px;
-
    background: #AFDDB0;
    border-radius: 50px;    
 }
 
 #cadastro_placeholder_user {
    position: absolute;
-
    width: 400px;
    top: 4px;
    left: 40px;
-
    font-family: 'Inter';
    font-style: normal;
    font-weight: 600;
@@ -361,17 +358,14 @@ body {
    display: flex;
    align-items: center;
    text-align: center;
-
    color: #000000;
 }
 
 #cadastro_placeholder_dataCreation {
    position: absolute;
-
    width: 200px;
    top: 4px;
    left: 552px;
-
    font-family: 'Akshar';
    font-style: normal;
    font-weight: 400;
@@ -380,17 +374,14 @@ body {
    display: flex;
    align-items: center;
    text-align: center;
-
    color: #000000;
 }
 
 #cadastro_placeholder_data {
    position: absolute;
-
    width: 100px;
    top: 22px;
    left: 573px;
-
    font-family: 'Akshar';
    font-style: normal;
    font-weight: 400;
@@ -399,7 +390,6 @@ body {
    display: flex;
    align-items: center;
    text-align: center;
-
    color: #000000;
 }
 
@@ -417,7 +407,6 @@ body {
    height: 24.68px;
    top: -35px;
    left: 5px;
-
    font-family: 'Inter';
    font-style: normal;
    font-weight: 600;
@@ -426,7 +415,6 @@ body {
    display: flex;
    align-items: center;
    text-align: center;
-
    color: #000000;
 }
 
@@ -434,12 +422,10 @@ body {
    position: absolute;
    width: 137px;
    height: 44.05px;
-   
-   background: #AFDDB0;
+   background: #afddb075;
    border: 1px solid #111111;
    border-radius: 9px;
    font-size: 16px;
-
    appearance: none;
    margin: 0;
 }
@@ -459,7 +445,6 @@ body {
    height: 24.68px;
    top: -35px;
    left: 5px;
-
    font-family: 'Inter';
    font-style: normal;
    font-weight: 600;
@@ -468,7 +453,6 @@ body {
    display: flex;
    align-items: center;
    text-align: center;
-
    color: #000000;
 }
 
@@ -476,12 +460,10 @@ body {
    position: absolute;
    width: 137px;
    height: 44.05px;
-   
    background: #AFDDB0;
    border: 1px solid #111111;
    border-radius: 9px;
    font-size: 16px;
-
    appearance: none;
    margin: 0;
 }
@@ -501,7 +483,6 @@ body {
    height: 24.68px;
    top: -35px;
    left: 5px;
-
    font-family: 'Inter';
    font-style: normal;
    font-weight: 600;
@@ -510,7 +491,6 @@ body {
    display: flex;
    align-items: center;
    text-align: center;
-
    color: #000000;
 }
 
@@ -518,12 +498,10 @@ body {
    position: absolute;
    width: 137px;
    height: 44.05px;
-   
    background: #AFDDB0;
    border: 1px solid #111111;
    border-radius: 9px;
    font-size: 16px;
-
    appearance: none;
    margin: 0;
 }
