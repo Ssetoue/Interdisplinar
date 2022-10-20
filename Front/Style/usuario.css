@@ -373,15 +373,13 @@ body {
 
 #atualizar_informacao_title {
     position: absolute;
-    left: 40px;
+    left: 25px;
     top: 10px;
-
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 40px;
     line-height: 77px;
-    
     color: #FFFFFF;
 }
 
