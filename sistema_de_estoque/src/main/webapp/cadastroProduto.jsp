@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page import="java.time.LocalDateTime" %>
+<%@ page import="model.Usuario" %>
+<% Usuario usuario = (Usuario) request.getAttribute("novoId"); %>
 <%   DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
 	 LocalDateTime now = LocalDateTime.now();  %>
 <!DOCTYPE html>
@@ -68,7 +70,7 @@
                 <form name="formCadastro" action="novoProduto">
 
                     <div class="divCadastro">
-                        <div id="cadastroUsuario" name="cadastrar" type="text">
+                        <div id="cadastroUsuario">
                             <p id="cadastro_placeholder_user">Cadastrar Produto</p>
                             <p id="cadastro_placeholder_dataCreation">Data de Cadastro:</p>
                             <p id="cadastro_placeholder_data"><%=dtf.format(now) %></p>
@@ -78,6 +80,7 @@
                     <div class="code_produto">
                         <label id="code_produto_text"></label>
                         <p id="code_produto_title">Código de produto</p>
+                        <p>________<%=usuario.getId() %>________</p>
                     </div>
                     
                     <div class="nome_produto">

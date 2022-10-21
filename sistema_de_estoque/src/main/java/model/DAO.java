@@ -122,6 +122,24 @@ public class DAO {
 		}
 	}
 	
+	public int novoIdProduto() {
+		String novoIdProduto = "SELECT MAX(cod_Prod) FROM produto;";
+		try {
+			Connection con = conectar();
+			PreparedStatement pst = con.prepareStatement(novoIdProduto);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				int novoId = rs.getInt(1);
+				con.close();
+				return novoId + 1;
+			}
+			return 0;
+		} catch (Exception e) {
+			System.out.println(e);
+			return 0;
+		}
+	}
+	
 	public void novoAdministrador(Usuario usuario) {
 		String novoProduto = "INSERT INTO administrador(nome_func, cpf, senha) VALUES (?, ?, ?)";
 		try {

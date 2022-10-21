@@ -18,7 +18,7 @@ import model.Fornecedor;
 /**
  * Servlet implementation class Controller
  */
-@WebServlet(urlPatterns = { "/Controller", "/inicio", "/login", "/usuario", "/sair", "/home", "/novoProduto", "/novoUsuario", "/novoFornecedor" })
+@WebServlet(urlPatterns = { "/Controller", "/inicio", "/login", "/usuario", "/sair", "/home", "/novoProduto", "/novoUsuario", "/novoFornecedor", "/cadastroProduto" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -81,6 +81,14 @@ public class Controller extends HttpServlet {
 			} else {
 				response.sendRedirect("Login.html");
 			}
+		} else if (action.equals("/cadastroProduto")){
+			if (Usuario.getAcesso().equals("Administracao")) {
+				novoIdProduto(request, response);
+			} else if (Usuario.getAcesso().equals("Funcionario")) { 
+				response.sendRedirect("home");
+			} else {
+				response.sendRedirect("Login.html");
+			}
 		} else {
 			response.sendRedirect("Login.html");
 		}
@@ -114,6 +122,13 @@ public class Controller extends HttpServlet {
 		response.sendRedirect("home");
 	}
 	
+	protected void novoIdProduto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		usuario.setId(dao.novoIdProduto());
+		request.setAttribute("novoId", usuario);
+		RequestDispatcher rd = request.getRequestDispatcher(("cadastroProduto.jsp"));
+		rd.forward(request, response);
+	}
+	
 	protected void novoUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Usuario usuario= new Usuario();
 		usuario.setNome(request.getParameter("nomeCompleto"));
@@ -126,6 +141,7 @@ public class Controller extends HttpServlet {
 		}
 		response.sendRedirect("home");
 	}
+	
 	protected void novoFornecedor(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		Fornecedor fornecedor = new Fornecedor();
 		fornecedor.setNome(request.getParameter("Nome"));
@@ -133,6 +149,7 @@ public class Controller extends HttpServlet {
 		dao.novoFornecedor(fornecedor);
 		response.sendRedirect("Home.jsp");
 	}
+	
 	protected void lotesVencendo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		ArrayList<Lote> lista = dao.lotesVencendo();
 		request.setAttribute("lotes", lista);
