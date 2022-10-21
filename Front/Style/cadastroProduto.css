@@ -646,6 +646,7 @@ body {
 .cancelar_cadastro a{
     text-decoration: none;
     cursor: pointer;
+    color: black;
 }
 
 #cancelar_cadastro_button {

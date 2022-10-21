@@ -413,9 +413,7 @@ body {
     width: 126px;
     height: 28px;
     font-size: 15px;
-
     color: white;
-    
     background: #313131;
     border-radius: 10px;
     cursor: pointer;
@@ -435,7 +433,6 @@ body {
     height: 38px;
     background: none;
     font-size: 15px;
-
     color: black;
     border: none;
     cursor: pointer;
