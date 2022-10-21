@@ -65,7 +65,7 @@
                 <%if (Usuario.getAcesso().equals("Administracao")) {%>
                 <a href="Atual-estoque.html" ><button id="atualizar">Atualizar</button></a>
             	<%} %>
-                <a href="consulta-estoque.html"><button id="consultar">Consultar</button></a>
+                <a href="consulta-estoque.jsp"><button id="consultar">Consultar</button></a>
             </div>
         </div>
     </div>

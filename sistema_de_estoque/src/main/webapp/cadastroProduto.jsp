@@ -98,7 +98,7 @@
                     </div>
     
                     <div class="cancelar_cadastro">
-                        <button id="cancelar_cadastro_button" name="cancelar_cadastro">Cancelar</button>
+                        <a href="Home.jsp"><input id="cancelar_cadastro_button" name="cancelar_cadastro" type="button" value="Cancelar"></a>
                     </div>
     
                     <div class="confirmar_cadastro">
@@ -126,6 +126,8 @@
 			formCadastro.submit();
 		}
 	}
+	
+	
 </script>
 </body>
 </html>

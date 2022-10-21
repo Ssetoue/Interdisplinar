@@ -5,6 +5,10 @@ public class Fornecedor {
 	private String contato;
 	private int idFornecedor;
 
+	public Fornecedor() {
+		super();
+	}
+	
 	public Fornecedor(String nome, String contato, int idFornecedor) {
 		this.nome = nome;
 		this.contato = contato;

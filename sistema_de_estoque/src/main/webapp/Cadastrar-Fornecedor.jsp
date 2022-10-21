@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="java.time.LocalDateTime" %>
+<%   DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
+	 LocalDateTime now = LocalDateTime.now();  %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon"  type="image/x-icon" href="imagens/recanto_do_parque_logo.png">
     <link rel="stylesheet" href="./Style/Cad-fornecedor.css">
-    <title>Cadastrar Produto</title>
+    <title>Cadastrar Fornecedor</title>
 </head>
 <body>
     <div class="principal"> <!--Corpo principal-->
@@ -62,13 +65,13 @@
             </div>
 
             <div class="bodyDiv">
-                <form action="">
+                <form name="novoFornecedor" action="novoFornecedor">
 
                     <div class="divCadastro">
-                        <div id="cadastroUsuario" name="cadastrar" type="text">
+                        <div id="cadastroUsuario">
                             <p id="cadastro_placeholder_user">Cadastrar Fornecedor</p>
                             <p id="cadastro_placeholder_dataCreation">Data de Cadastro:</p>
-                            <p id="cadastro_placeholder_data">00/00/0000</p>
+                            <p id="cadastro_placeholder_data"><%=dtf.format(now) %></p>
                         </div>
                     </div>
     
@@ -78,16 +81,18 @@
                     </div>
     
                     <div class="valor_produto">
-                        <input id="valor_produto_text" name="Valor" type="number">
+                        <input id="valor_produto_text" name="Contato" type="number">
                         <p id="valor_produto_title">Contato</p>
                     </div>
 
                     <div class="cancelar_cadastro">
-                        <button id="cancelar_cadastro_button" name="cancelar_cadastro"><a href="Home.jsp">Cancelar</a></button>
+                        <a href="Home.jsp">
+                        	<input id="cancelar_cadastro_button" type="button" name="cancelar_cadastro" value="Cancelar">
+                        </a>
                     </div>
     
                     <div class="confirmar_cadastro">
-                        <input id="confirmar_cadastro_button" type="submit" name="confirmar_cadastrar" value="Cadastrar">
+                        <button id="confirmar_cadastro_button" type="button" name="confirmar_cadastrar" onclick="validar()">Cadastrar</button>
                      </div>
 
                 </form>
@@ -95,6 +100,22 @@
         </div>
     </div>
 
-
+<script>
+function validar() {
+	let nome = novoFornecedor.Nome.value;
+	let contato = novoFornecedor.Contato.value;
+	if (nome === "") {
+		alert("Preencha o campo nome");
+		novoFornecedor.Nome.focus();
+		return false
+	} else if (contato === "") {
+		alert("Preencha o campo contato");
+		novoFornecedor.Contato.focus();
+		return false
+	} else {
+		novoFornecedor.submit();
+	}
+}
+</script>
 </body>
 </html>

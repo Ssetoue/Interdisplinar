@@ -138,13 +138,27 @@ public class DAO {
 	}
 	
 	public void novoFuncionario(Usuario usuario) {
-		String novoProduto = "INSERT INTO administrador(nome_func, cpf, senha) VALUES (?, ?, ?)";
+		String novoProduto = "INSERT INTO funcionario(nome_func, cpf, senha) VALUES (?, ?, ?)";
 		try {
 			Connection con = conectar();
 			PreparedStatement pst = con.prepareStatement(novoProduto);
 			pst.setString(1, usuario.getNome());
 			pst.setString(2, usuario.getCpf());
 			pst.setString(3, usuario.getSenha());
+			pst.executeUpdate();
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	
+	public void novoFornecedor(Fornecedor fornecedor) {
+		String novoFornecedor = "INSERT INTO fornecedor(nome_Forn, contato) VALUES (?, ?)";
+		try {
+			Connection con = conectar();
+			PreparedStatement pst = con.prepareStatement(novoFornecedor);
+			pst.setString(1, fornecedor.getNome());
+			pst.setString(2, fornecedor.getContato());
 			pst.executeUpdate();
 			con.close();
 		} catch (Exception e) {

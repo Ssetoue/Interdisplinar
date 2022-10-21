@@ -14,10 +14,11 @@ import model.DAO;
 import model.Usuario;
 import model.Lote;
 import model.Produto;
+import model.Fornecedor;
 /**
  * Servlet implementation class Controller
  */
-@WebServlet(urlPatterns = { "/Controller", "/inicio", "/login", "/usuario", "/sair", "/home", "/novoProduto", "/novoUsuario" })
+@WebServlet(urlPatterns = { "/Controller", "/inicio", "/login", "/usuario", "/sair", "/home", "/novoProduto", "/novoUsuario", "/novoFornecedor" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -72,6 +73,14 @@ public class Controller extends HttpServlet {
 			}
 		} else if (action.equals("/home")){
 			lotesVencendo(request, response);
+		} else if (action.equals("/novoFornecedor")){
+			if (Usuario.getAcesso().equals("Administracao")) {
+				novoFornecedor(request, response);
+			} else if (Usuario.getAcesso().equals("Funcionario")) { 
+				response.sendRedirect("home");
+			} else {
+				response.sendRedirect("Login.html");
+			}
 		} else {
 			response.sendRedirect("Login.html");
 		}
@@ -116,6 +125,13 @@ public class Controller extends HttpServlet {
 			dao.novoFuncionario(usuario);
 		}
 		response.sendRedirect("home");
+	}
+	protected void novoFornecedor(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		Fornecedor fornecedor = new Fornecedor();
+		fornecedor.setNome(request.getParameter("Nome"));
+		fornecedor.setContato(request.getParameter("Contato"));
+		dao.novoFornecedor(fornecedor);
+		response.sendRedirect("Home.jsp");
 	}
 	protected void lotesVencendo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		ArrayList<Lote> lista = dao.lotesVencendo();

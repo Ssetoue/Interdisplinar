@@ -1,33 +1,34 @@
 package model;
 
 public class Lote {
-	private static int contador;
 	private String codigo;
-	private Produto produto;
+	private String produto;
 	private double precoLote;
 	private int quantidade;
 	private Data dataVal, dataFab;
 
-	public Lote(Produto produto, int quantidade, double precoLote, Data dataFab, Data dataVal) {
-		++contador;
-
+	public Lote() {
+		super();
+	}
+	
+	public Lote(String produto, int quantidade, double precoLote, Data dataFab, Data dataVal, String codigo) {
 		this.produto = produto;
 		this.precoLote = precoLote;
 		this.quantidade = quantidade;
 		this.dataFab = dataFab;
 		this.dataVal = dataVal;
-		codigo = "Lote " + contador;
+		this.codigo = codigo;
 	}
 
 	public String getCodigo() {
 		return codigo;
 	}
 
-	public Produto produto() {
+	public String produto() {
 		return produto;
 	}
 
-	public void setProduto(Produto produto) {
+	public void setProduto(String produto) {
 		this.produto = produto;
 	}
 

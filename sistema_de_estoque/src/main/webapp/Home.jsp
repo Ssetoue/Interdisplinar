@@ -91,10 +91,11 @@
                         </tbody>
                     </table>
                 </div>
+                <%if (Usuario.getAcesso().equals("Administracao")) {%>
                 <a href="Cadastrar-Fornecedor.jsp">
                     <button class="cad-func">Cadastrar Fornecedor</button>
                 </a>
-
+				<%} %>
             </div>
         </div>
     </div>
