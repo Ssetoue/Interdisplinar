@@ -299,7 +299,6 @@ body {
 #cabeca h3{
     font-size: 50px;
     margin: 10% 0 2px 0;
-    border: red solid 1px;
 }
 .style-title img{
     width: 50px;
@@ -309,12 +308,10 @@ body {
     display: flex;
     width: 85%;
     margin: 1% 0 2px 24%;
-    border: red solid 1px;
 }
 #cabeca p{
     font-size: 15px;
-    margin: 50% 0 2px;
-    border: red solid 1px;
+    margin: 9% 0 2px 479.2px;
 }
 .filtro img{width: 20px;}
 
