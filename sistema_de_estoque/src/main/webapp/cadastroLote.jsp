@@ -76,42 +76,42 @@
                     </div>
     
                     <div class="code_lote">
-                        <input id="code_lote_text" name="CPF" type="number">
+                        <input id="code_lote_text" name="CodLote" type="number">
                         <p id="code_lote_title">Código de lote</p>
                     </div>
     
                     <div class="fornecedor">
-                        <input id="fornecedor_text" name="Nome" type="text">
-                        <p id="fornecedor_title">Nome de produto</p>
+                        <input id="fornecedor_text" name="NomeProd" type="text">
+                        <p id="fornecedor_title">Nome do produto</p>
                     </div>
     
                     <div class="data_chegada">
-                        <input id="data_chegada_text" name="Valor" type="date">
+                        <input id="data_chegada_text" name="DataChegada" type="date">
                         <p id="data_chegada_title">Data de chegada</p>
                     </div>
                     
                     <div class="data_fabricacao">
-                        <input id="data_fabricacao_text" name="CPF" type="date">
+                        <input id="data_fabricacao_text" name="DataFabricacao" type="date">
                         <p id="data_fabricacao_title">Data de fabricação</p>
                     </div>
 
                     <div class="valor_lote">
-                        <input id="valor_lote_text" name="CPF" type="number">
+                        <input id="valor_lote_text" name="Valor" type="number">
                         <p id="valor_lote_title">Valor (lote)</p>
                     </div>
 
                     <div class="code_produto">
-                        <input id="code_produto_text" name="CPF" type="number">
-                        <p id="code_produto_title">Código de produto</p>
+                        <input id="code_produto_text" name="NomeForn">
+                        <p id="code_produto_title">Nome do Fornecedor</p>
                     </div>
 
                     <div class="quantidade">
-                        <input id="quantidade_text" name="CPF" type="number">
+                        <input id="quantidade_text" name="Quantidade" type="number">
                         <p id="quantidade_title">Quantidade</p>
                     </div>
 
                     <div class="data_vencimento">
-                        <input id="data_vencimento_text" name="CPF" type="date">
+                        <input id="data_vencimento_text" name="DataVencimento" type="date">
                         <p id="data_vencimento_title">Data de Vencimento</p>
                     </div>
     
@@ -128,7 +128,7 @@
                     </div>
     
                     <div class="confirmar_cadastro">
-                        <button id="confirmar_cadastro_button" name="confirmar_cadastrar" onclick="validar()">Cadastrar</button>
+                        <input id="confirmar_cadastro_button" name="confirmar_cadastrar" type="button" onclick="validar()" value="Cadastrar">
                     </div>
 
                 </form>
@@ -136,6 +136,41 @@
         </div>
     </div>
 <script>
+function validar() {
+	let nomeProd = novoLote.NomeProd.value;
+	let dataFabricacao = novoLote.DataFabricacao.value;
+	let valor = novoLote.Valor.value;
+	let nomeForn = novoLote.NomeForn.value;
+	let quantidade = novoLote.Quantidade.value;
+	let dataVencimento = novoLote.DataVencimento.value;
+	if (nomeProd === "") {
+		alert("Preencha o campo Nome do Produto");
+		novoLote.NomeProd.focus();
+		return false
+	} else if (dataFabricacao === "") {
+		alert("Preencha o campo Data de Fabricação");
+		novoLote.DataFabricacao.focus();
+		return false
+	} else if (valor === "") {
+		alert("Preencha o campo Valor");
+		novoLote.Valor.focus();
+		return false
+	} else if (nomeForn === "") {
+		alert("Preencha o campo Nome do Fornecedor");
+		novoLote.NomeForn.focus();
+		return false
+	} else if (quantidade === "") {
+		alert("Preencha o campo Quantidade");
+		novoLote.Quantidade.focus();
+		return false
+	} else if (dataVencimento === "") {
+		alert("Preencha o campo Data de Vencimento");
+		novoLote.DataVencimento.focus();
+		return false
+	} else {
+		novoLote.submit();
+	}
+}
 </script>
 
 </body>
