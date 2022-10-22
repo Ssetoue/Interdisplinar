@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,6 +25,7 @@ public class Controller extends HttpServlet {
 	
 	DAO dao = new DAO();
 	Usuario usuario = new Usuario();
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -140,7 +142,7 @@ public class Controller extends HttpServlet {
 	}
 	
 	protected void novoUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Usuario usuario= new Usuario();
+		Usuario usuario = new Usuario();
 		usuario.setNome(request.getParameter("nomeCompleto"));
 		usuario.setCpf(request.getParameter("CPF"));
 		usuario.setSenha(request.getParameter("senha_text"));
@@ -163,12 +165,16 @@ public class Controller extends HttpServlet {
 	protected void novoLote(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		Lote lote = new Lote();
 		lote.setProduto(request.getParameter("NomeProd"));
-		lote.setDataFab(request.getParameter("dataFabricacao"));
-		lote.setDataVal(request.getParameter("DataVencimento"));
+		try {
+			lote.setDataFab(sdf.parse(request.getParameter("DataFabricacao")));
+			lote.setDataVal(sdf.parse(request.getParameter("DataVencimento")));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		lote.setInfo(request.getParameter("inf_1") + request.getParameter("inf_2") + request.getParameter("inf_3"));
 		lote.setNomeForn(request.getParameter("NomeForn"));
 		lote.setPrecoLote(Double.parseDouble(request.getParameter("Valor")));
-		lote.setQuantidade(Integer.parseInt("Quantidade"));
+		lote.setQuantidade(Integer.parseInt(request.getParameter("Quantidade")));
 		dao.novoLote(lote);
 		response.sendRedirect("cadastro.html");
 	}

@@ -211,7 +211,7 @@ public class DAO {
 			pst.setString(1, nome);
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
-				int id = rs.getInt(2);
+				int id = rs.getInt(1);
 				con.close();
 				return id;
 			}
@@ -223,12 +223,19 @@ public class DAO {
 	}
 	
 	public void novoLote(Lote lote) {
-		String novoLote = "INSERT INTO lote(Cod_Prod, cod_Forn, preco_Lote, quant_Lote, data_fabric, data_vencimento, info_Lote) (?, ?, ?, ?, ?, ?, ?)";
+		String novoLote = "INSERT INTO lote(Cod_Prod, cod_Forn, preco_Lote, quant_Lote, data_fabric, data_vencimento, info_Lote) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		try {
 			Connection con = conectar();
 			PreparedStatement pst = con.prepareStatement(novoLote);
 			pst.setInt(1, produtoId(lote.getProduto()));
-			
+			pst.setInt(2, fornecedorId(lote.getNomeForn()));
+			pst.setDouble(3, lote.getPrecoLote());
+			pst.setInt(4, lote.getQuantidade());
+			pst.setDate(5, new java.sql.Date(lote.getDataFab().getTime()));
+			pst.setDate(6, new java.sql.Date(lote.getDataVal().getTime()));
+			pst.setString(7, lote.getInfo());
+			pst.executeUpdate();
+			con.close();
 		} catch (Exception e) {
 			System.out.println(e);
 		}

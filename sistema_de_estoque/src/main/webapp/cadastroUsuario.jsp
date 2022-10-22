@@ -96,15 +96,15 @@
                 </div>
 
                 <div class="funButton">
-                    <label><input id="funcionario" type="radio" name="usuario">Funcionário></label>
+                    <label><input id="funcionario" type="radio" name="usuario" value="funcionario">Funcionário></label>
                 </div>
 
                 <div class="admButton">
-                    <label><input id="administrador" type="radio" name="usuario">Administrador</label>
+                    <label><input id="administrador" type="radio" name="usuario" value="administrador">Administrador</label>
                 </div>
 
                 <div class="cancelar_cadastro">
-                    <button id="cancelar_cadastro_button" name="cancelar_cadastro"><a href="usuario.jsp">Cancelar</a></button>
+                    <a href="usuario.jsp"><input id="cancelar_cadastro_button" type="button" value="Cancelar" name="cancelar_cadastro"></a>
                 </div>
 
                 <div class="confirmar_cadastro">
