@@ -18,7 +18,7 @@ import model.Fornecedor;
 /**
  * Servlet implementation class Controller
  */
-@WebServlet(urlPatterns = { "/Controller", "/inicio", "/login", "/usuario", "/sair", "/home", "/novoProduto", "/novoUsuario", "/novoFornecedor", "/cadastroProduto" })
+@WebServlet(urlPatterns = { "/Controller", "/inicio", "/login", "/usuario", "/sair", "/home", "/novoProduto", "/novoUsuario", "/novoFornecedor", "/cadastroProduto", "/novoLote" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -89,6 +89,14 @@ public class Controller extends HttpServlet {
 			} else {
 				response.sendRedirect("Login.jsp");
 			}
+		} else if (action.equals("/novoLote")){
+			if (Usuario.getAcesso().equals("Administracao")) {
+				novoLote(request, response);
+			} else if (Usuario.getAcesso().equals("Funcionario")) { 
+				response.sendRedirect("home");
+			} else {
+				response.sendRedirect("Login.jsp");
+			}
 		} else {
 			response.sendRedirect("Login.jsp");
 		}
@@ -152,6 +160,18 @@ public class Controller extends HttpServlet {
 		response.sendRedirect("Home.jsp");
 	}
 	
+	protected void novoLote(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		Lote lote = new Lote();
+		lote.setProduto(request.getParameter("NomeProd"));
+		lote.setDataFab(request.getParameter("dataFabricacao"));
+		lote.setDataVal(request.getParameter("DataVencimento"));
+		lote.setInfo(request.getParameter("inf_1") + request.getParameter("inf_2") + request.getParameter("inf_3"));
+		lote.setNomeForn(request.getParameter("NomeForn"));
+		lote.setPrecoLote(Double.parseDouble(request.getParameter("Valor")));
+		lote.setQuantidade(Integer.parseInt("Quantidade"));
+		dao.novoLote(lote);
+		response.sendRedirect("cadastro.html");
+	}
 	protected void lotesVencendo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		ArrayList<Lote> lista = dao.lotesVencendo();
 		request.setAttribute("lotes", lista);
