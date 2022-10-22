@@ -108,7 +108,8 @@
                 </div>
 
                 <div class="confirmar_cadastro">
-                    <button id="confirmar_cadastro_button" name="confirmar_cadastrar" type="submit">Cadastrar</button>
+                    <input id="confirmar_cadastro_button" name="confirmar_cadastrar" 
+                    value="Cadastrar" type="submit">
                 </div>
 			</form>
             </div>
