@@ -41,7 +41,7 @@ public class Controller extends HttpServlet {
 		String action = request.getServletPath();
 		System.out.println(action);
 		if (action.equals("/inicio")) {
-			response.sendRedirect("Login.html");
+			response.sendRedirect("Login.jsp");
 		} else if (action.equals("/login")) {
 			validarUsuario(request, response);
 		} else if (action.equals("/usuario")){
@@ -50,18 +50,18 @@ public class Controller extends HttpServlet {
 			} else if (Usuario.getAcesso().equals("Funcionario")) { 
 				response.sendRedirect("home");
 			} else {
-				response.sendRedirect("Login.html");
+				response.sendRedirect("Login.jsp");
 			}
 		} else if (action.equals("/sair")){
 			Usuario.setAcesso("");
-			response.sendRedirect("Login.html");
+			response.sendRedirect("Login.jsp");
 		} else if (action.equals("/novoProduto")) {
 			if (Usuario.getAcesso().equals("Administracao")) {
 				novoProduto(request, response);
 			} else if (Usuario.getAcesso().equals("Funcionario")) { 
 				response.sendRedirect("home");
 			} else {
-				response.sendRedirect("Login.html");
+				response.sendRedirect("Login.jsp");
 			}
 		} else if (action.equals("/novoUsuario")){
 			if (Usuario.getAcesso().equals("Administracao")) {
@@ -69,7 +69,7 @@ public class Controller extends HttpServlet {
 			} else if (Usuario.getAcesso().equals("Funcionario")) { 
 				response.sendRedirect("home");
 			} else {
-				response.sendRedirect("Login.html");
+				response.sendRedirect("Login.jsp");
 			}
 		} else if (action.equals("/home")){
 			lotesVencendo(request, response);
@@ -79,7 +79,7 @@ public class Controller extends HttpServlet {
 			} else if (Usuario.getAcesso().equals("Funcionario")) { 
 				response.sendRedirect("home");
 			} else {
-				response.sendRedirect("Login.html");
+				response.sendRedirect("Login.jsp");
 			}
 		} else if (action.equals("/cadastroProduto")){
 			if (Usuario.getAcesso().equals("Administracao")) {
@@ -87,10 +87,10 @@ public class Controller extends HttpServlet {
 			} else if (Usuario.getAcesso().equals("Funcionario")) { 
 				response.sendRedirect("home");
 			} else {
-				response.sendRedirect("Login.html");
+				response.sendRedirect("Login.jsp");
 			}
 		} else {
-			response.sendRedirect("Login.html");
+			response.sendRedirect("Login.jsp");
 		}
 	}
 
@@ -101,7 +101,9 @@ public class Controller extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
 			rd.forward(request, response);
 		} else {
-			response.sendRedirect("LoginErrado.html");
+			Usuario.setAcesso("negado");
+			request.setAttribute("acesso", usuario);
+			response.sendRedirect("Login.jsp");
 		}
 	}
 	
