@@ -1,0 +1,442 @@
+body {
+    max-width:100%;
+    margin-left:0;
+}
+
+.principal {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+}
+
+.lateralBar {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 267px;
+    height: 100%;
+    background-color: #313131;
+    flex-direction: column;
+}
+
+@media only screen and (max-height: 918px) {
+    .lateralBar {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 267px;
+        height: 918px;
+        background-color: #313131;
+        flex-direction: column;
+    }
+}
+
+#logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 197px;
+    height: 197px;
+}
+
+#linha_vertical {
+    position: absolute;
+    left: 90%;
+    top: 0px;
+    width: 19px;
+    height: 100%;
+    background-color: #7da97e;
+}
+
+/* botão home */
+#home {
+    position: absolute;
+    top: 265px;
+    width: 80%;
+    height: 60px;
+    background-color: #7da97e;
+    box-shadow: 6px 5px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 0px 10px 10px 0px;
+    border: none;
+    cursor: pointer;
+}
+
+#homeImg {
+    position: absolute;
+    left: 10%;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+#homeButton {
+    position: absolute;
+    left: 46%;
+    top: 0%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 16px;
+    text-align: center;
+}
+
+#homeButton:hover {
+    text-decoration: underline;
+}
+
+#home:hover {
+    position: absolute;
+    top: 264px;
+    width: 81%;
+}
+
+/* botão cadastrar */
+#cadastrar {
+    position: absolute;
+    top: 350px;
+    width: 80%;
+    height: 60px;
+    background-color: #7da97e;
+    box-shadow: 6px 5px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 0px 10px 10px 0px;
+    border: none;
+    cursor: pointer;
+}
+
+#cadastrarImg {
+    position: absolute;
+    left: 10%;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+#cadastrarButton {
+    position: absolute;
+    left: 46%;
+    top: 0%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 16px;
+    text-align: center;
+}
+
+#cadastrarButton:hover {
+    text-decoration: underline;
+}
+
+#cadastrar:hover {
+    position: absolute;
+    top: 348px;
+    width: 81%;
+}
+
+/* botão estoque */
+#estoque {
+    position: absolute;
+    top: 435px;
+    width: 80%;
+    height: 60px;
+    background-color: #7da97e;
+    box-shadow: 6px 5px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 0px 10px 10px 0px;
+    border: none;
+    cursor: pointer;
+}
+
+#estoqueImg {
+    position: absolute;
+    left: 10%;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+#estoqueButton {
+    position: absolute;
+    left: 46%;
+    top: 0%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 16px;
+    text-align: center;
+}
+
+#estoqueButton:hover {
+    text-decoration: underline;
+}
+
+#estoque:hover {
+    position: absolute;
+    top: 433px;
+    width: 81%;
+}
+
+/* botão informação */
+#informacao {
+    position: absolute;
+    top: 520px;
+    width: 80%;
+    height: 60px;
+    background-color: #7da97e;
+    box-shadow: 6px 5px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 0px 10px 10px 0px;
+    border: none;
+    cursor: pointer;
+}
+
+#informacaoImg {
+    position: absolute;
+    left: 10%;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+#informacaoButton {
+    position: absolute;
+    left: 46%;
+    top: 0%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 16px;
+    text-align: center;
+}
+
+#informacaoButton:hover {
+    text-decoration: underline;
+}
+
+#informacao:hover {
+    position: absolute;
+    top: 518px;
+    width: 81%;
+}
+
+
+/* abaixo está tudo do lado direito incluindo navbar */
+.body {
+    background-size: cover;
+    position: absolute;
+    left: 267px;
+    height: 100%;
+    width: calc(100% - 267px);
+}
+
+.navbar {
+    background-size: cover;
+    position: absolute;
+    background-color:#ffffff;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    height: 110px;
+    margin: 0 auto;
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    min-height: 80px;
+}
+
+@media only screen and (max-width: 1360px) {
+    .navbar {
+        width: calc(1320px - 270px);
+    }
+}
+
+#engrenagem { 
+    position: absolute;
+    Width: 38px;
+    Height: 38px;
+    top: 35px;
+    left: 32px;
+}
+
+#perfil {
+    position: absolute;
+    Width: 38px;
+    Height: 38px;
+    top: 35px;
+    right: 3%
+}
+
+@media only screen and (max-width: 900px) {
+    #perfil {
+        position: absolute;
+        Width: 38px;
+        Height: 38px;
+        top: 35;
+        right: 70px
+    }
+}
+
+.searchBar {
+    position: absolute;
+    top: 32px;
+    left: 180px;
+    width: 300px;
+    height: 50px;
+}
+
+#searchIcon {
+    position: absolute;
+    Width: 33px;
+    Height: 33px;
+    top: 20%;
+    left: 8%;
+}
+
+#search {
+    position: absolute;
+    box-sizing: border-box;
+
+    width: 452px;
+    height: 50px;
+
+    border: 1px solid #000000;
+    border-radius: 36px;
+
+    padding-left: 35%;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 39px;
+}
+
+/* abaixo está o cadastro */
+
+.bodyDiv {
+    position: absolute;
+    top: 110px;
+    width: calc(100% - 267px);
+    height: calc(100% - 110px);
+}
+
+.divCadastro {
+    position: absolute;
+    width: 600px;
+    height: 280px;
+    left: 170px;
+    top: 140px;
+
+    background: #2d2d2d;
+    box-shadow: 0px -4px 4px rgba(89, 89, 89, 0.25), 0px -4px 4px rgba(89, 89, 89, 0.25), 0px 4px 4px rgba(89, 89, 89, 0.25), 0px 4px 4px rgba(89, 89, 89, 0.25), 0px 4px 4px rgba(89, 89, 89, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(89, 89, 89, 0.25), 0px 4px 4px rgba(89, 89, 89, 0.25);
+}
+
+#cadastro_title {
+    position: absolute;
+    top: -5px;
+    left: 166px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #FFFFFF;
+}
+
+#produto {
+    position: absolute;
+    top: 130px;
+    left: 100px;
+    width: 160px;
+    height: 50px;
+    background-color: #7da97e;
+    box-shadow: 6px 5px 4px rgba(0, 0, 0, 0.3);
+    border-radius:10px;
+    border: none;
+    cursor: pointer;
+}
+
+#produtoButton {
+    position: absolute;
+    top: -6px;
+    left: 45px;
+    font-size: 20px;
+}
+
+#produto:hover {
+    top: 128px;
+    left: 102px;
+}
+
+#lote {
+    position: absolute;
+    top: 130px;
+    left: 350px;
+    width: 160px;
+    height: 50px;
+    background-color: #7da97e;
+    box-shadow: 6px 5px 4px rgba(0, 0, 0, 0.3);
+    border-radius:10px;
+    border: none;
+    cursor: pointer;
+}
+
+#loteButton {
+    position: absolute;
+    top: -6px;
+    left: 60px;
+    font-size: 20px;
+}
+
+#lote:hover {
+    top: 128px;
+    left: 352px;
+}
+
+.confirmar_cadastro {
+    position: absolute;
+    width: 156px;
+    height: 38px;
+    left: 690px;
+    top: 556px;
+}
+
+#confirmar_cadastro_button{
+    position: absolute;
+    width: 126px;
+    height: 28px;
+    font-size: 15px;
+
+    color: white;
+    
+    background: #313131;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.cancelar_cadastro {
+    position: absolute;
+    width: 156px;
+    height: 38px;
+    left: 540px;
+    top: 550px;
+}
+
+#cancelar_cadastro_button {
+    position: absolute;
+    width: 156px;
+    height: 38px;
+    background: none;
+    font-size: 15px;
+
+    color: black;
+    border: none;
+    cursor: pointer;
+}
