@@ -184,6 +184,56 @@ public class DAO {
 		}
 	}
 	
+	public int produtoId(String nome) {
+		String produtoId = "SELECT cod_Prod FROM produto WHERE nome_prod = ?";
+		try {
+			Connection con = conectar();
+			PreparedStatement pst = con.prepareStatement(produtoId);
+			pst.setString(1, nome);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				int id = rs.getInt(1);
+				con.close();
+				return id;
+			}
+			return 0;
+		} catch (Exception e) {
+			System.out.println(e);
+			return 0;
+		}
+	}
+	
+	public int fornecedorId(String nome) {
+		String fornecedorId = "SELECT cod_Forn FROM fornecedor WHERE nome_Forn = ?";
+		try {
+			Connection con = conectar();
+			PreparedStatement pst = con.prepareStatement(fornecedorId);
+			pst.setString(1, nome);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				int id = rs.getInt(2);
+				con.close();
+				return id;
+			}
+			return 0;
+		} catch (Exception e) {
+			System.out.println(e);
+			return 0;
+		}
+	}
+	
+	public void novoLote(Lote lote) {
+		String novoLote = "INSERT INTO lote(Cod_Prod, cod_Forn, preco_Lote, quant_Lote, data_fabric, data_vencimento, info_Lote) (?, ?, ?, ?, ?, ?, ?)";
+		try {
+			Connection con = conectar();
+			PreparedStatement pst = con.prepareStatement(novoLote);
+			pst.setInt(1, produtoId(lote.getProduto()));
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	
 	public ArrayList<Lote> lotesVencendo(){
 		ArrayList<Lote> lista = new ArrayList<>();
 		return lista;

@@ -1,17 +1,19 @@
 package model;
+import java.util.Date;
 
 public class Lote {
 	private int codigo;
 	private String produto;
 	private double precoLote;
 	private int quantidade;
-	private String dataVal, dataFab, info, nomeForn;
+	private Date dataVal, dataFab;
+	private String info, nomeForn;
 
 	public Lote() {
 		super();
 	}
 	
-	public Lote(String produto, int quantidade, double precoLote, String dataFab, String dataVal, int codigo, String info, String nomeForn) {
+	public Lote(String produto, int quantidade, double precoLote, Date dataFab, Date dataVal, int codigo, String info, String nomeForn) {
 		this.produto = produto;
 		this.precoLote = precoLote;
 		this.quantidade = quantidade;
@@ -46,19 +48,19 @@ public class Lote {
 		this.precoLote = precoLote;
 	}
 
-	public String getDataFab() {
+	public Date getDataFab() {
 		return dataFab;
 	}
 
-	public void setDataFab(String dataFab) {
+	public void setDataFab(Date dataFab) {
 		this.dataFab = dataFab;
 	}
 
-	public String getDataVal() {
+	public Date getDataVal() {
 		return dataVal;
 	}
 
-	public void setDataVal(String dataVal) {
+	public void setDataVal(Date dataVal) {
 		this.dataVal = dataVal;
 	}
 
