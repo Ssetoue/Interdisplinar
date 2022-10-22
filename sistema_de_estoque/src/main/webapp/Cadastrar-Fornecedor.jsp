@@ -44,7 +44,7 @@
                 </button>   
             </a>
 
-            <a href="usuario">
+            <a href="usuario.jsp">
                 <button id="informacao" type="submit">
                     <p id="informacaoButton">Usuário</p>
                     <img id="informacaoImg" src="imagens/boxes.png">
@@ -75,6 +75,11 @@
                         </div>
                     </div>
     
+                    <div class="msg"></div>
+                    <div class="code_produto">
+                        <label id="code_produto_text"></label>
+                        <p id="code_produto_title">Código do Fornecedor</p>
+                    </div>
                     <div class="nome_produto">
                         <input id="nome_produto_text" name="Nome" type="text">
                         <p id="nome_produto_title">Nome de Fornecedor</p>
@@ -84,6 +89,24 @@
                         <input id="valor_produto_text" name="Contato" type="number">
                         <p id="valor_produto_title">Contato</p>
                     </div>
+                    
+                    <div class="Produto">
+                        <input id="n-prod" name="Produto-nome" type="text">
+                        <p id="title-produto">Nome do Produto</p>
+                    </div>
+                    <p id="title-c-produto">Código do Produto</p>
+                    <div class="cod_produto">
+                     <input type="submit" name="adicionar" value="Adicionar" id="add-btn">
+                 </div>
+       
+                       <div class="informaçoes_produto">
+                           <p id="informaçoes_produto1_text"></p>
+                           <p id="informaçoes_produto2_text"></p>
+                           <p id="informaçoes_produto3_text"></p>
+                           <p id="informaçoes_produto4_text"></p>
+                           <p id="informaçoes_produto_title">Produtos do Fornecedor</p>
+                       </div>
+       
 
                     <div class="cancelar_cadastro">
                         <a href="Home.jsp">
