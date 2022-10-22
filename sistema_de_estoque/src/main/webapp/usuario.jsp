@@ -71,9 +71,9 @@
                 </button>
                 </a>
 
-                <button class="atualizar_informacao">
+                <a href="Atual-usuario.html"><button class="atualizar_informacao">
                     <p id="atualizar_informacao_title">Atualizar Informação</p>
-                </button>
+                </button></a>
 
                 <div class="usuario_cadastro_div">
                     <div id="usuario_cadastro_title">
