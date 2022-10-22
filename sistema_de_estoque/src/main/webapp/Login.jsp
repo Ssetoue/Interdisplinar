@@ -13,7 +13,7 @@
     <!-- <script src="https://kit.fontawesome.com/ca14b9e588.js" crossorigin="anonymous"></script> -->
     <title>Login</title>
 </head>
-<body <%if (Usuario.getAcesso().equals("negado")){ %> onload="negado()" <%} %>>
+<body <%if (Usuario.getAcesso().equals("negado")){ %> onload="negado()" <%} Usuario.setAcesso("");%>>
     <div class="navbar">
         <input id="engrenagem" src="imagens/settings.png" type="image">
         <input id="perfil" src="imagens/user_icon.png" type="image">
@@ -86,7 +86,6 @@
         
         function negado(){
         	alert("Por favor, insira um CPF e senha válidos");
-        	window.location.replace("Login.html");
         }
     </script>
 </body>
