@@ -23,7 +23,7 @@
             <img id="logo" src="imagens/recanto_do_parque_logo.png">
             <div id="linha_vertical"></div> <!--Linha verde-->
 
-            <a href="Home.html">
+            <a href="Home">
                 <button id="home" type="submit">
                     <p id="homeButton">Home</p>
                     <img id="homeImg" src="imagens/home.png">
@@ -45,7 +45,7 @@
                 </button>   
             </a>
             <%if (Usuario.getAcesso().equals("Administracao")) {%>
-            <a href="usuario.html">
+            <a href="usuario">
                 <button id="informacao" type="submit">
                     <p id="informacaoButton">Usuário</p>
                     <img id="informacaoImg" src="imagens/boxes.png">
