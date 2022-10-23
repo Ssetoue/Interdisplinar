@@ -90,13 +90,48 @@
                             <p id="quantidade_title">Quantidade Saida</p>
                         </div>
                         <div class="info-estoque">
-                            <p id="informaçoes_produto1_text"> Produto Codigo Quantidade Valor Total Lote Data</p>
-                            <input id="informaçoes_produto2_text" name="inf_2" type="text">
-                            <input id="informaçoes_produto3_text" name="inf_3" type="text">
-                            <input id="informaçoes_produto4_text" name="inf_" type="text">
+                            
                             <p id="atual-info-mes">Atualizações do Mês<br> (01/01 - 31/01)</p>
-                            <p id="informaçoes_produto_title">Informações do Estoque</p>
-                            <p id="informaçoes_produto_title2">Saídas do Estoque:</p>
+                            <table class="tab-style" style="border-collapse: collapse;">
+                                <thead>
+                                    <tr>
+                                        <th>Produto</th>
+                                        <th>Código</th>
+                                        <th>Qtd.</th>
+                                        <th>Total</th>
+                                        <th>lote</th>
+                                        <th>Data</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tbody">
+                                    <tr>
+                                        <td>produto</td>
+                                        <td>00</td>
+                                        <td>15</td>
+                                        <td>15</td>
+                                        <td>00</td>
+                                        <td>00/00/0000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>produto</td>
+                                        <td>00</td>
+                                        <td>15</td>
+                                        <td>15</td>
+                                        <td>00</td>
+                                        <td>00/00/0000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>produto</td>
+                                        <td>00</td>
+                                        <td>15</td>
+                                        <td>15</td>
+                                        <td>00</td>
+                                        <td>00/00/0000</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+
                         </div>
                         <div class="cancelar_atualizar">
                             <a href="estoque.jsp"><input id="cancelar_atual_button" name="cancelar_atualiar" type="button" value="Cancelar"></a>
