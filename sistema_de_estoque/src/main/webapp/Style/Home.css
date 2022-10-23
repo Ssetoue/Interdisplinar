@@ -344,6 +344,8 @@ text-shadow: 5px 5px 3px #7DA97E;
 }
 .tab-up{
     text-align: center;
+    margin-bottom: 4px;
+    color: #ffffff;
 }
 .tab-up label{
     text-align: center;
@@ -353,6 +355,7 @@ table{
     width: 260px;
     margin-left: 10%;
     text-align: center;
+    color: #ffffff;
 }
 .tab-info{
     overflow-y: auto;

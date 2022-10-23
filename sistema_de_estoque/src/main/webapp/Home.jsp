@@ -86,7 +86,7 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="tbody">
                         	<%for (int i = 0; i < lista.size(); i++) {%>
 	                            <tr>
 	                                <td><%=lista.get(i).getCodigoProduto() %></td>
