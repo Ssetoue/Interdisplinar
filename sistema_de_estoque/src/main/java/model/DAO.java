@@ -367,4 +367,21 @@ public class DAO {
           System.out.println(e);
        }
     }
+    
+    public void atualizarLote(Lote lote) {
+       int idProduto = produtoId(lote.getProduto());
+       String atualizar = "UPDATE lote SET Cod_Prod=?, preco_Lote=?, quant_Lote=? WHERE Cod_Lote=?";
+       try {
+          Connection con = conectar();
+          PreparedStatement pst = con.prepareStatement(atualizar);
+          pst.setInt(1, idProduto);
+          pst.setDouble(2, lote.getPrecoLote());
+          pst.setInt(3, lote.getQuantidade());
+          pst.setInt(4, lote.getCodigo());
+          pst.executeUpdate();
+          con.close();
+       } catch (Exception e) {
+          System.out.println(e);
+       }
+    }
 }
