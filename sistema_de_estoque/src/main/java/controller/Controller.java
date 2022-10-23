@@ -21,7 +21,7 @@ import model.LoteEstoque;
 /**
  * Servlet implementation class Controller
  */
-@WebServlet(urlPatterns = { "/Controller", "/inicio", "/login", "/usuario", "/sair", "/home", "/novoProduto", "/novoUsuario", "/novoFornecedor", "/cadastroProduto", "/novoLote", "/consultarEstoque"})
+@WebServlet(urlPatterns = { "/Controller", "/inicio", "/login", "/usuario", "/sair", "/home", "/novoProduto", "/novoUsuario", "/novoFornecedor", "/cadastroProduto", "/novoLote", "/consultarEstoque", "/atualizarUsuario"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -111,6 +111,14 @@ public class Controller extends HttpServlet {
           } else {
               response.sendRedirect("Login.jsp");
           }
+        } else if (action.equals("/atualizarUsuario")){
+           if (Usuario.getAcesso().equals("Administracao")) {
+              atualizarUsuario(request, response);
+          } else if (Usuario.getAcesso().equals("Funcionario")) { 
+              response.sendRedirect("home");
+          } else {
+              response.sendRedirect("Login.jsp");
+          }
         } else {
 			response.sendRedirect("Login.jsp");
 		}
@@ -147,7 +155,7 @@ public class Controller extends HttpServlet {
 	}
 	
 	protected void novoIdProduto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		usuario.setId(dao.novoIdProduto());
+		usuario.setId(dao.idProduto() + 1);
 		request.setAttribute("novoId", usuario);
 		RequestDispatcher rd = request.getRequestDispatcher(("cadastroProduto.jsp"));
 		rd.forward(request, response);
@@ -159,11 +167,35 @@ public class Controller extends HttpServlet {
 		usuario.setCpf(request.getParameter("CPF"));
 		usuario.setSenha(request.getParameter("senha_text"));
 		if (request.getParameter("usuario").equals("administrador")) {
-			dao.novoAdministrador(usuario);
+		   dao.novoAdministrador(usuario);
 		} else {
-			dao.novoFuncionario(usuario);
+		   dao.novoFuncionario(usuario);
 		}
-		response.sendRedirect("home");
+		response.sendRedirect("usuario");
+	}
+	
+	protected void atualizarUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	   Usuario usuario = new Usuario();
+       usuario.setNome(request.getParameter("nomeCompleto"));
+       usuario.setCpf(request.getParameter("CPF"));
+       usuario.setSenha(request.getParameter("senha_text"));
+       String acesso = dao.usuarioAcesso(usuario);
+       if (request.getParameter("usuario").equals("administrador")) {
+          if (acesso.equals("administrador")) {
+             dao.atualizarAdministrador(usuario);
+          } else if (acesso.equals("funcionario")){
+             dao.deletarFuncionario(usuario);
+             dao.novoAdministrador(usuario);
+          }
+       } else {
+          if (acesso.equals("funcionario")) {
+             dao.atualizarFuncionario(usuario);
+          } else if (acesso.equals("administrador")){
+             dao.deletarAdministrador(usuario);
+             dao.novoFuncionario(usuario);
+          }
+       }
+       response.sendRedirect("usuario");
 	}
 	
 	protected void novoFornecedor(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

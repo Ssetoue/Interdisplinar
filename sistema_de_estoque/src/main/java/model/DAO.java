@@ -29,8 +29,8 @@ public class DAO {
 	}
 	
 	public boolean validarUsuario(Usuario usuario) {
-		String validar1 = "SELECT id FROM funcionario WHERE cpf=? AND senha=?";
-		String validar2 = "SELECT id FROM administrador WHERE cpf=? AND senha=?";
+		String validar1 = "SELECT id FROM funcionario WHERE cpf=? AND senha=?;";
+		String validar2 = "SELECT id FROM administrador WHERE cpf=? AND senha=?;";
 		try {
 			Connection con = conectar();
 			PreparedStatement pst1 = con.prepareStatement(validar1);
@@ -67,7 +67,7 @@ public class DAO {
 	
 	public ArrayList<Usuario> listarAdministracao(){
 		ArrayList<Usuario> lista  = new ArrayList<>();
-		String read = "SELECT * FROM administrador";
+		String read = "SELECT * FROM administrador;";
 		try {
 			Connection con = conectar();
 			PreparedStatement pst = con.prepareStatement(read);
@@ -110,7 +110,7 @@ public class DAO {
 	}
 	
 	public void novoProduto(Produto produto) {
-		String novoProduto = "INSERT INTO produto(nome_prod, valor, info_Prod) VALUES (?, ?, ?)";
+		String novoProduto = "INSERT INTO produto(nome_prod, valor, info_Prod) VALUES (?, ?, ?);";
 		try {
 			Connection con = conectar();
 			PreparedStatement pst = con.prepareStatement(novoProduto);
@@ -124,16 +124,16 @@ public class DAO {
 		}
 	}
 	
-	public int novoIdProduto() {
-		String novoIdProduto = "SELECT MAX(cod_Prod) FROM produto;";
+	public int idProduto() {
+		String idProduto = "SELECT MAX(cod_Prod) FROM produto;";
 		try {
 			Connection con = conectar();
-			PreparedStatement pst = con.prepareStatement(novoIdProduto);
+			PreparedStatement pst = con.prepareStatement(idProduto);
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
-				int novoId = rs.getInt(1);
+				int id = rs.getInt(1);
 				con.close();
-				return novoId + 1;
+				return id;
 			}
 			return 0;
 		} catch (Exception e) {
@@ -143,10 +143,10 @@ public class DAO {
 	}
 	
 	public void novoAdministrador(Usuario usuario) {
-		String novoProduto = "INSERT INTO administrador(nome_func, cpf, senha) VALUES (?, ?, ?)";
+		String novoAdministrador = "INSERT INTO administrador(nome_func, cpf, senha) VALUES (?, ?, ?);";
 		try {
 			Connection con = conectar();
-			PreparedStatement pst = con.prepareStatement(novoProduto);
+			PreparedStatement pst = con.prepareStatement(novoAdministrador);
 			pst.setString(1, usuario.getNome());
 			pst.setString(2, usuario.getCpf());
 			pst.setString(3, usuario.getSenha());
@@ -158,10 +158,10 @@ public class DAO {
 	}
 	
 	public void novoFuncionario(Usuario usuario) {
-		String novoProduto = "INSERT INTO funcionario(nome_func, cpf, senha) VALUES (?, ?, ?)";
+		String novoFuncionario = "INSERT INTO funcionario(nome_func, cpf, senha) VALUES (?, ?, ?);";
 		try {
 			Connection con = conectar();
-			PreparedStatement pst = con.prepareStatement(novoProduto);
+			PreparedStatement pst = con.prepareStatement(novoFuncionario);
 			pst.setString(1, usuario.getNome());
 			pst.setString(2, usuario.getCpf());
 			pst.setString(3, usuario.getSenha());
@@ -173,7 +173,7 @@ public class DAO {
 	}
 	
 	public void novoFornecedor(Fornecedor fornecedor) {
-		String novoFornecedor = "INSERT INTO fornecedor(nome_Forn, contato) VALUES (?, ?)";
+		String novoFornecedor = "INSERT INTO fornecedor(nome_Forn, contato) VALUES (?, ?);";
 		try {
 			Connection con = conectar();
 			PreparedStatement pst = con.prepareStatement(novoFornecedor);
@@ -187,7 +187,7 @@ public class DAO {
 	}
 	
 	public int produtoId(String nome) {
-		String produtoId = "SELECT cod_Prod FROM produto WHERE nome_prod = ?";
+		String produtoId = "SELECT cod_Prod FROM produto WHERE nome_prod = ?;";
 		try {
 			Connection con = conectar();
 			PreparedStatement pst = con.prepareStatement(produtoId);
@@ -206,7 +206,7 @@ public class DAO {
 	}
 	
 	public int fornecedorId(String nome) {
-		String fornecedorId = "SELECT cod_Forn FROM fornecedor WHERE nome_Forn = ?";
+		String fornecedorId = "SELECT cod_Forn FROM fornecedor WHERE nome_Forn = ?;";
 		try {
 			Connection con = conectar();
 			PreparedStatement pst = con.prepareStatement(fornecedorId);
@@ -225,7 +225,7 @@ public class DAO {
 	}
 	
 	public void novoLote(Lote lote) {
-		String novoLote = "INSERT INTO lote(Cod_Prod, cod_Forn, preco_Lote, quant_Lote, data_fabric, data_vencimento, info_Lote) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		String novoLote = "INSERT INTO lote(Cod_Prod, cod_Forn, preco_Lote, quant_Lote, data_fabric, data_vencimento, info_Lote) VALUES (?, ?, ?, ?, ?, ?, ?);";
 		try {
 			Connection con = conectar();
 			PreparedStatement pst = con.prepareStatement(novoLote);
@@ -278,4 +278,93 @@ public class DAO {
          return null;
       }
 	}
+	
+	public String usuarioAcesso(Usuario usuario) {
+	   String validar1 = "SELECT id FROM funcionario WHERE cpf=?;";
+       String validar2 = "SELECT id FROM administrador WHERE cpf=?;";
+       try {
+           Connection con = conectar();
+           PreparedStatement pst1 = con.prepareStatement(validar1);
+           pst1.setString(1, usuario.getCpf());
+           ResultSet rs = pst1.executeQuery();
+           while (rs.next()) {
+               if (rs.getInt(1) != 0) {
+                   usuario.setId(rs.getInt(1));
+                   con.close();
+                   return "funcionario";
+               }
+           }
+           PreparedStatement pst2 = con.prepareStatement(validar2);
+           pst2.setString(1, usuario.getCpf());
+           rs = pst2.executeQuery();
+           while (rs.next()) {
+               if (rs.getInt(1) != 0) {
+                   usuario.setId(rs.getInt(1));
+                   con.close();
+                   return "administrador";
+               }
+           }
+           con.close();
+           return "inválido";
+       } catch (Exception e) {
+           System.out.println(e);
+           return "inválido";
+       }   
+	}
+	
+	public void atualizarAdministrador(Usuario usuario) {
+	   String atualizar = "UPDATE administrador SET nome_func=?, senha=? WHERE cpf=?;";
+	   try {
+	      Connection con = conectar();
+	      PreparedStatement pst = con.prepareStatement(atualizar);
+	      pst.setString(1, usuario.getNome());
+	      pst.setString(2, usuario.getSenha());
+	      pst.setString(3, usuario.getCpf());
+	      pst.executeUpdate();
+	      con.close();
+	   } catch (Exception e) {
+         System.out.println(e);
+       }
+	}
+	
+	public void deletarAdministrador(Usuario usuario) {
+	   String deletar = "DELETE FROM administrador WHERE cpf=?;";
+	   try {
+	      Connection con = conectar();
+	      PreparedStatement pst = con.prepareStatement(deletar);
+	      pst.setString(1, usuario.getCpf());
+	      pst.executeUpdate();
+	      con.close();
+       } catch (Exception e) {
+          System.out.println(e);
+       }
+	}
+	   
+    public void atualizarFuncionario(Usuario usuario) {
+       String atualizar = "UPDATE funcionario SET nome_func=?, senha=? WHERE cpf=?;";
+       try {
+          Connection con = conectar();
+          PreparedStatement pst = con.prepareStatement(atualizar);
+          pst.setString(1, usuario.getNome());
+          pst.setString(2, usuario.getSenha());
+          pst.setString(3, usuario.getCpf());
+          pst.executeUpdate();
+          con.close();
+       } catch (Exception e) {
+         System.out.println(e);
+       }
+    }
+    
+    public void deletarFuncionario(Usuario usuario) {
+       String deletar = "DELETE FROM funcionario WHERE cpf=?;";
+       try {
+          Connection con = conectar();
+          PreparedStatement pst = con.prepareStatement(deletar);
+          pst.setString(1, usuario.getCpf());
+          pst.executeUpdate();
+          con.close();
+       } catch (Exception e) {
+          System.out.println(e);
+       }
+    }
 }

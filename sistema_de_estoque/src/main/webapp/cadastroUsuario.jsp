@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="funButton">
-                    <label><input id="funcionario" type="radio" name="usuario" value="funcionario">Funcionário></label>
+                    <label><input id="funcionario" type="radio" name="usuario" value="funcionario" checked>Funcionário></label>
                 </div>
 
                 <div class="admButton">

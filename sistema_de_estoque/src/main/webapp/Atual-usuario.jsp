@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="java.time.LocalDateTime" %>
+<%   DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
+	 LocalDateTime now = LocalDateTime.now();  %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,14 +66,14 @@
 
             <div class="bodyDiv">
                 <div class="divCadastro">
-                    <div id="cadastroUsuario" name="cadastrar" type="text">
+                    <div id="cadastroUsuario">
                         <p id="cadastro_placeholder_user">Atualizar Cadastro Usuário</p>
                         <p id="cadastro_placeholder_dataCreation">Data de Cadastro:</p>
-                        <p id="cadastro_placeholder_data">00/00/0000</p>
+                        <p id="cadastro_placeholder_data"><%=dtf.format(now) %></p>
                     </div>
                 </div>
 
-            <form action="">
+            <form action="atualizarUsuario" name="atualizarUsuario">
                  <div class="msg"></div>
                 <div class="nomeCompleto">
                     <input id="nome_completo_text" name="nomeCompleto" type="text">
@@ -84,17 +90,17 @@
                 </div>
 
                 <div class="senha">
-                    <input id="senha_text" name="nomeCompleto" type="password">
+                    <input id="senha_text" name="senha_text" type="password">
                     <p id="senha_title">Senha</p>
                     
                 </div>
 
                 <div class="funButton">
-                    <button id="funcionario" name="funcionario">Funcionário</button>
+                    <label><input id="funcionario" name="usuario" type="radio" value="funcionario" checked>Funcionario</label>
                 </div>
 
                 <div class="admButton">
-                    <button id="administrador" name="administrador">Administrador</button>
+                    <label><input id="administrador" name="usuario" type="radio" value="administrador">Administrador</label>
                 </div>
 
                 <div class="cancelar_cadastro">
@@ -102,7 +108,7 @@
                 </div>
 
                 <div class="confirmar_cadastro">
-                    <input type="submit" id="confirmar_cadastro_button" name="confirmar_cadastrar" value="Atualizar">
+                    <input type="button" id="confirmar_cadastro_button" name="confirmar_cadastrar" value="Atualizar" onclick="validar()">
                 </div>
             </form>
             </div>
@@ -110,32 +116,26 @@
     </div>
 
 <script> //Aqui começa a parte da validação dos campos da tela de cadastro de usuário//
-    
-    const nameInput = document.getElementById("nome_completo_text")
-    const cpfInput = document.getElementById("CPF_text")
-    const senhaInput = document.getElementById("senha_text")
-    const submitButton = document.getElementById("confirmar_cadastro_button")
-
-    const errorMessage = document.querySelector(".msg")
-    
-   submitButton.addEventListener("click",(e) =>  {
-    e.preventDefault()
-
-    const nameValue = nameInput.value;
-    const cpfValue =cpfInput.value;
-    const senhaValue = senhaInput.value;
-
-    /*A parte abaixo é para aparecer uma mensagem no caso o usuário,
-  tente acessar o sistema sem colocar as suas informações*/
-    
-  if(nameValue =="" || cpfValue =="" || senhaValue ==""){
-        errorMessage.textContent = "PARA TER ACESSO AO SISTEMA,DIGITE AS INFORMAÇÕES PEDIDAS !"
-        errorMessage.style.color = "white"
-        errorMessage.style.background = "red"
-        return;
-    }
-
-   })
+	function validar() {
+		let nome = atualizarUsuario.nomeCompleto.value;
+		let cpf = atualizarUsuario.CPF.value;
+		let senha = atualizarUsuario.senha_text.value;
+		if (nome === "") {
+			alert("Preencha o campo nome");
+			atualizarUsuario.nomeCompleto.focus();
+			return false;
+		} else if (cpf === "") {
+			alert("Preencha o campo cpf");
+			atualizarUsuario.CPF.focus();
+			return false;
+		} else if (senha === ""){
+			alert("Preencha o campo senha");
+			atualizarUsuario.senha_text.focus();
+			return false;
+		} else {
+			atualizarUsuario.submit();
+		}
+	}
 </script>
 
 </body>

@@ -71,7 +71,7 @@
                 </button>
                 </a>
 
-                <a href="Atual-usuario.html"><button class="atualizar_informacao">
+                <a href="Atual-usuario.jsp"><button class="atualizar_informacao">
                     <p id="atualizar_informacao_title">Atualizar Informação</p>
                 </button></a>
 
