@@ -322,54 +322,60 @@ body {
     border: 1px solid #000000;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
-    table{
-       position: absolute;
-    margin-top: 2%;
-       margin-left: 22%;
-       width: 90%;
-       height: 78%;
-    }
-    thead tr{
-    position: absolute;
-    width: 100%;
-    height: 81px;
-    background: #AFDDB0;
-    border-radius: 15px;
+    #tab-th{
+            height: 81px;
+            margin-top: 2%;
+            margin-left:24%;
+            background-color: #AFDDB0;
+            font-size: 20px;
+            width: 670px;
+            border-radius: 10px;
+            text-align: center;
+            align-items: center;
+            justify-items: center;
+            display: flex;
     
+        }
+    #tab-th label{
+       font-size: 25px;
+       margin-top: 10px;
+       margin: 2% 0 0 0;
+        }
+    table{
+        margin-top: 2%;
+        margin-left:25%;
+        width: 660px;
+        height: 250px;
+        border-radius: 10px;
+        }
+    tbody{
+        height: 250px;
     }
-    thead th{
-        width: 17.6%;
-       height: 76px;
-       text-align: center;
-        font-size: 20px;
+    .style-tab{
+        display: block;
+        overflow: auto;
+    
+        background-color: #3131317c;
+        }
+    ::-webkit-scrollbar{
+        background: #7da97e;
+        width: 5px;
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb{
+        background-color: #313131;
+        border-radius: 10px;
     }
     tbody tr{
-    position: absolute;
-    width: 100%;
-    height: 45px;
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    border-radius: 15px;
-    margin-top: 15%;
-    text-align: center;
-    }
+        width: 600px;
+        height: 45px;
+        background: #FFFFFF;
+        border: 1px solid #000000;
+        border-radius: 15px;
+        text-align: center;
+        }
     tbody tr td{
-        width: 18.7%;
-       height: 40px;
-
-    }
-    .tab1{
-       margin-top: 16%;
-    }
-    .tab2{
-       margin-top: 25%;
-    }
-    .tab3{
-       margin-top: 34%;
-    }
-    .tab4{
-       margin-top: 43%
-    }
-    .tab5{
-       margin-top: 52%;
-    }
+        width: 25%;
+        height: 40px;
+    
+        }

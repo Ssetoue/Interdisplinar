@@ -73,19 +73,25 @@
                 <div class="consulta"> 
                 </div><!--consulta-->
                 <div class="tl-info-prod">
+                    <div id="tab-th">
+                    <label style="border-right: black solid 1px; padding:0 36.5px 10px 36.5px;">Produto</label>
+                    <label style="border-right: black solid 1px; padding:0 36.5px 10px 36.5px;">Código</label>
+                    <label style="border-right: black solid 1px; padding:0 36.5px 10px 36.5px;">Qtd.</label>
+                    <label style="border-right: black solid 1px; padding:0 30px 10px 45px;">Lote.</label>
+                    <label style="padding:0 0 10px 0;">Data de Venc.</label>
+                    </div>
                    <table class="style-tab">
                       <thead>
                       <tr>
-                         <th style="border-right: black solid 1px;">Produto</th>
-                         <th style="border-right: black solid 1px;">Código</th>
-                         <th style="border-right: black solid 1px;">Qtd. Restante</th>
-                         <th style="border-right: black solid 1px;">Lote</th>
-                         <th>Data de Venc.</th>
+                         <th></th>
+                         <th></th>
+                         <th></th>
+                         <th></th>
                       </tr> 
                       </thead>
                       <tbody>
                       <%for (int i = 0; i < lista.size(); i++) {%>
-	                      <tr class="uno">
+	                      <tr>
 	                         <td><%=lista.get(i).getProdutoNome() %></td>
 	                         <td><%=lista.get(i).getProdutoCodigo() %></td>
 	                         <td><%=lista.get(i).getQuantidade() %></td>
