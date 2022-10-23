@@ -19,7 +19,7 @@ import model.Fornecedor;
 /**
  * Servlet implementation class Controller
  */
-@WebServlet(urlPatterns = { "/Controller", "/inicio", "/login", "/usuario", "/sair", "/home", "/novoProduto", "/novoUsuario", "/novoFornecedor", "/cadastroProduto", "/novoLote" })
+@WebServlet(urlPatterns = { "/Controller", "/inicio", "/login", "/usuario", "/sair", "/home", "/novoProduto", "/novoUsuario", "/novoFornecedor", "/cadastroProduto", "/novoLote"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -73,9 +73,9 @@ public class Controller extends HttpServlet {
 			} else {
 				response.sendRedirect("Login.jsp");
 			}
-		} else if (action.equals("/home")){
-			lotesVencendo(request, response);
-		} else if (action.equals("/novoFornecedor")){
+			} else if (action.equals("/home")){
+				/*lotesVencendo(request, response);*/
+			} else if (action.equals("/novoFornecedor")){
 			if (Usuario.getAcesso().equals("Administracao")) {
 				novoFornecedor(request, response);
 			} else if (Usuario.getAcesso().equals("Funcionario")) { 
@@ -178,10 +178,10 @@ public class Controller extends HttpServlet {
 		dao.novoLote(lote);
 		response.sendRedirect("cadastro.html");
 	}
-	protected void lotesVencendo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	/*protected void lotesVencendo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		ArrayList<Lote> lista = dao.lotesVencendo();
 		request.setAttribute("lotes", lista);
 		RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
 		rd.forward(request, response);
-	}
+	}*/
 }

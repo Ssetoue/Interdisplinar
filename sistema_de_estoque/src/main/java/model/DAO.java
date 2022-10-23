@@ -241,8 +241,9 @@ public class DAO {
 		}
 	}
 	
-	public ArrayList<Lote> lotesVencendo(){
+	/*public ArrayList<Lote> lotesVencendo(){
 		ArrayList<Lote> lista = new ArrayList<>();
+		String lotesVencendo = "SELECT ";
 		return lista;
-	}
+	}*/
 }
