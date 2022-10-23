@@ -63,7 +63,7 @@
 
             <div class="bodyDiv"> <!--Aqui dentro é o corpo abaixo da navbar, e do lado da barra lateral-->
                 <%if (Usuario.getAcesso().equals("Administracao")) {%>
-                <a href="Atual-estoque.jsp" ><button id="atualizar">Atualizar</button></a>
+                <a href="Atual-estoque.html" ><button id="atualizar">Atualizar</button></a>
             	<%} %>
                 <a href="consultarEstoque"><button id="consultar">Consultar</button></a>
             </div>
