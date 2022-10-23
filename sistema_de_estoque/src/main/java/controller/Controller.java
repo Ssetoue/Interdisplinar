@@ -91,7 +91,7 @@ public class Controller extends HttpServlet {
 			}
 		} else if (action.equals("/cadastroProduto")){
 			if (Usuario.getAcesso().equals("Administracao")) {
-				novoIdProduto(request, response);
+				response.sendRedirect("cadastroProduto.jsp");
 			} else if (Usuario.getAcesso().equals("Funcionario")) { 
 				response.sendRedirect("home");
 			} else {

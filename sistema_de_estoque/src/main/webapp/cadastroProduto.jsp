@@ -80,7 +80,7 @@
                     <div class="code_produto">
                         <label id="code_produto_text"></label>
                         <p id="code_produto_title">Código de produto</p>
-                        <p>________<%=usuario.getId() %>________</p>
+                        <p></p>
                     </div>
                     
                     <div class="nome_produto">
