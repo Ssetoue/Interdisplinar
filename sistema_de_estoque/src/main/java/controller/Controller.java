@@ -16,6 +16,7 @@ import model.Usuario;
 import model.Lote;
 import model.Produto;
 import model.Fornecedor;
+import model.LoteVencendo;
 /**
  * Servlet implementation class Controller
  */
@@ -73,9 +74,13 @@ public class Controller extends HttpServlet {
 			} else {
 				response.sendRedirect("Login.jsp");
 			}
-			} else if (action.equals("/home")){
-				/*lotesVencendo(request, response);*/
-			} else if (action.equals("/novoFornecedor")){
+		} else if (action.equals("/home")){
+			if (Usuario.getAcesso().equals("Administracao") || Usuario.getAcesso().equals("Funcionario")) {
+	            lotesVencendo(request, response);
+	        } else {
+	            response.sendRedirect("Login.jsp");
+	        }
+		} else if (action.equals("/novoFornecedor")){
 			if (Usuario.getAcesso().equals("Administracao")) {
 				novoFornecedor(request, response);
 			} else if (Usuario.getAcesso().equals("Funcionario")) { 
@@ -108,7 +113,7 @@ public class Controller extends HttpServlet {
 		usuario.setCpf(request.getParameter("CPF"));
 		usuario.setSenha(request.getParameter("Senha"));
 		if (dao.validarUsuario(usuario)) {
-			RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("home");
 			rd.forward(request, response);
 		} else {
 			Usuario.setAcesso("negado");
@@ -178,10 +183,10 @@ public class Controller extends HttpServlet {
 		dao.novoLote(lote);
 		response.sendRedirect("cadastro.html");
 	}
-	/*protected void lotesVencendo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		ArrayList<Lote> lista = dao.lotesVencendo();
-		request.setAttribute("lotes", lista);
+	protected void lotesVencendo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		ArrayList<LoteVencendo> lista = dao.lotesVencendo();
+		request.setAttribute("lotesVencendo", lista);
 		RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
 		rd.forward(request, response);
-	}*/
+	}
 }

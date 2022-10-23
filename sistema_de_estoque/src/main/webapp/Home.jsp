@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="model.Produto" %>
+<%@ page import="model.LoteVencendo" %>
 <%@ page import="model.Usuario" %>
 <%@ page import="java.util.ArrayList" %>
-<%--
+<%
   @ SuppressWarnings ("unchecked")
-  ArrayList<Produto> lista = (ArrayList<Produto>) request.getAttribute("produtosVencendo");
---%>
+  ArrayList<LoteVencendo> lista = (ArrayList<LoteVencendo>) request.getAttribute("lotesVencendo");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +23,7 @@
             <img id="logo" src="imagens/recanto_do_parque_logo.png">
             <div id="linha_vertical"></div> <!--Linha verde-->
 
-            <a href="Home.jsp">
+            <a href="home">
                 <button id="home" type="submit">
                     <p id="homeButton">Home</p>
                     <img id="homeImg" src="imagens/home.png">
@@ -81,13 +81,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                        	<%--for (int i = 0; i < lista.size(); i++) {--%>
+                        	<%for (int i = 0; i < lista.size(); i++) {%>
 	                            <tr>
-	                                <td>00</td>
-	                                <td>Produto</td>
-	                                <td>00</td>
+	                                <td><%=lista.get(i).getCodigoProduto() %></td>
+	                                <td><%=lista.get(i).getNomeProduto() %></td>
+	                                <td><%=lista.get(i).getCodigoLote() %></td>
 	                            </tr>
-	                    	<%--} --%>
+	                    	<%} %>
                         </tbody>
                     </table>
                 </div>

@@ -241,9 +241,21 @@ public class DAO {
 		}
 	}
 	
-	/*public ArrayList<Lote> lotesVencendo(){
-		ArrayList<Lote> lista = new ArrayList<>();
-		String lotesVencendo = "SELECT ";
-		return lista;
-	}*/
+	public ArrayList<LoteVencendo> lotesVencendo(){
+		ArrayList<LoteVencendo> lista = new ArrayList<>();
+		String lotesVencendo = "SELECT produto.cod_Prod, produto.nome_Prod, lote.Cod_Lote FROM produto, lote WHERE (lote.data_vencimento BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 1 MONTH)) AND produto.cod_Prod = lote.Cod_Prod;";
+		try {
+		   Connection con = conectar();
+		   PreparedStatement pst = con.prepareStatement(lotesVencendo);
+		   ResultSet rs = pst.executeQuery();
+		   while (rs.next()) {
+		      lista.add(new LoteVencendo(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+		   }
+		   System.out.println(lista.get(0).getCodigoLote());
+		   return lista;
+        } catch (Exception e) {
+           System.out.println(e);
+           return null;
+        }
+	}
 }

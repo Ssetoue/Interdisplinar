@@ -20,7 +20,7 @@
             <img id="logo" src="imagens/recanto_do_parque_logo.png">
             <div id="linha_vertical"></div> <!--Linha verde-->
 
-            <a href="Home.jsp">
+            <a href="home">
                 <button id="home" type="submit">
                 
                     <p id="homeButton">Home</p>
