@@ -72,12 +72,18 @@
                 <h2 class="bem-vindo">Bem-Vindo</h2>
                 <div class="notes-info">
                     <h3>Produtos Perto de Vencer</h3>
-                    <table>
+                    <div class="tab-up">
+                        <label style="padding-left: 11%; padding-right: 2%;">Código</label>
+                        <label  style="padding-left: 9%; padding-right: 2%;">Nome</label>
+                        <label  style="padding-left: 5%; ">Código do Lote</label>
+                        </div>
+                        <div class="tabela">
+                    <table class="tab-info" style="border-collapse:collapse;">
                         <thead>
                             <tr>
-                                <th>Código</th>
-                                <th>Nome</th>
-                                <th>Código do Lote</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -90,6 +96,7 @@
 	                    	<%} %>
                         </tbody>
                     </table>
+                        </div>
                 </div>
                 <%if (Usuario.getAcesso().equals("Administracao")) {%>
                 <a href="Cadastrar-Fornecedor.jsp">

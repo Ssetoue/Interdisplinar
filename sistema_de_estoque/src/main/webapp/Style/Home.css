@@ -1,6 +1,7 @@
 body {
     max-width:100%;
     margin-left:0;
+
 }
 
 .principal {
@@ -341,19 +342,36 @@ text-shadow: 5px 5px 3px #7DA97E;
     color: #FFFFFF;
 text-shadow: 5px 5px 3px #7DA97E;
 }
-table{
-    border-collapse: collapse;
+.tab-up{
     text-align: center;
-    width: 80%;
-    margin-left: 12%;
-    margin-top: -20px;
-    color: #ffffff;
 }
-thead tr th{
-    border-bottom: 1px solid;   
-     padding-bottom: 2%;
+.tab-up label{
+    text-align: center;
 }
-tbody tr td{padding: 2%;}
+table{
+    height: 90px ;
+    width: 260px;
+    margin-left: 10%;
+    text-align: center;
+}
+.tab-info{
+    overflow-y: auto;
+    display: block;
+}
+.tbody tr td{
+    width: 20%;
+    height: 27px;
+}
+::-webkit-scrollbar{
+    background: #7da97e;
+    width: 5px;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
 tbody tr:nth-child(even) {background-color: #7da97e85}
 button.cad-func{
     margin: 25px 30% 0 70px;
