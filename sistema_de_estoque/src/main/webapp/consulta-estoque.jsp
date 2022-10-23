@@ -4,7 +4,7 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="model.Usuario" %>
 <%@ page import="model.LoteEstoque" %>
-<% 	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy"); %>
+<% 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); %>
 <%
   @ SuppressWarnings ("unchecked")
   ArrayList<LoteEstoque> lista = (ArrayList<LoteEstoque>) request.getAttribute("loteEstoque");
@@ -40,7 +40,7 @@
                 </button>
             </a>
             <%} %>
-            <a href="estoque.html">
+            <a href="estoque.jsp">
                 <button id="estoque" type="submit">
                     <p id="estoqueButton">Estoque</p>
                     <img id="estoqueImg" src="imagens/in-stock.png">

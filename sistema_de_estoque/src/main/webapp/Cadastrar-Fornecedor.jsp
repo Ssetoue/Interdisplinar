@@ -44,7 +44,7 @@
                 </button>   
             </a>
 
-            <a href="usuario.jsp">
+            <a href="usuario">
                 <button id="informacao" type="submit">
                     <p id="informacaoButton">Usuário</p>
                     <img id="informacaoImg" src="imagens/boxes.png">
@@ -109,13 +109,13 @@
        
 
                     <div class="cancelar_cadastro">
-                        <a href="Home.jsp">
+                        <a href="home">
                         	<input id="cancelar_cadastro_button" type="button" name="cancelar_cadastro" value="Cancelar">
                         </a>
                     </div>
     
                     <div class="confirmar_cadastro">
-                        <button id="confirmar_cadastro_button" type="button" name="confirmar_cadastrar" onclick="validar()">Cadastrar</button>
+                        <input id="confirmar_cadastro_button" type="button" name="confirmar_cadastrar" onclick="validar()" value="Cadastrar">
                      </div>
 
                 </form>

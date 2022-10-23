@@ -34,7 +34,7 @@
                 </button>
             </a>
 			<%} %>
-            <a href="estoque.html">
+            <a href="estoque.jsp">
                 <button id="estoque" type="submit">
                     <p id="estoqueButton">Estoque</p>
                     <img id="estoqueImg" src="imagens/in-stock.png">

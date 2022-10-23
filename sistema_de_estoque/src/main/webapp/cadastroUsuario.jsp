@@ -37,7 +37,7 @@
                 </button>
             </a>
 
-            <a href="estoque.html">
+            <a href="estoque.jsp">
                 <button id="estoque" type="submit">
                     <p id="estoqueButton">Estoque</p>
                     <img id="estoqueImg" src="imagens/in-stock.png">
@@ -104,12 +104,11 @@
                 </div>
 
                 <div class="cancelar_cadastro">
-                    <a href="usuario.jsp"><input id="cancelar_cadastro_button" type="button" value="Cancelar" name="cancelar_cadastro"></a>
+                    <a href="usuario"><input id="cancelar_cadastro_button" type="button" value="Cancelar" name="cancelar_cadastro"></a>
                 </div>
 
                 <div class="confirmar_cadastro">
-                    <input id="confirmar_cadastro_button" name="confirmar_cadastrar" 
-                    value="Cadastrar" type="submit">
+                    <input id="confirmar_cadastro_button" name="confirmar_cadastrar" value="Cadastrar" type="submit" onclick="validar()">
                 </div>
 			</form>
             </div>
