@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="model.Usuario" %>
-<%@ page import="model.Lote" %>
+<%@ page import="model.LoteEstoque" %>
+<% 	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy"); %>
 <%
   @ SuppressWarnings ("unchecked")
-  ArrayList<Lote> lista = (ArrayList<Lote>) request.getAttribute("Lote");
+  ArrayList<LoteEstoque> lista = (ArrayList<LoteEstoque>) request.getAttribute("loteEstoque");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +67,7 @@
             <div class="bodyDiv"> <!--Aqui dentro é o corpo abaixo da navbar, e do lado da barra lateral-->
                 
                 <div id="cabeca">
-                    <h3 class="style-title"><img src="./imagens/box.png">Estoque<h3>
+                    <h3 class="style-title"><img src="./imagens/box.png">Estoque</h3>
                         <p class="filtro">Filtro <img src="./imagens/right-arrow.png"></p>
                 </div>
                 <div class="consulta"> 
@@ -77,20 +79,20 @@
                          <th style="border-right: black solid 1px;">Produto</th>
                          <th style="border-right: black solid 1px;">Código</th>
                          <th style="border-right: black solid 1px;">Qtd. Restante</th>
-                         <th style="border-right: black solid 1px;">Qtd. Utilizada</th>
                          <th style="border-right: black solid 1px;">Lote</th>
                          <th>Data de Venc.</th>
                       </tr> 
                       </thead>
                       <tbody>
-                      <tr class="uno">
-                         <td></td>
-                         <td></td>
-                         <td></td>
-                         <td></td>
-                         <td></td>
-                         <td></td>
-                      </tr> 
+                      <%for (int i = 0; i < lista.size(); i++) {%>
+	                      <tr class="uno">
+	                         <td><%=lista.get(i).getProdutoNome() %></td>
+	                         <td><%=lista.get(i).getProdutoCodigo() %></td>
+	                         <td><%=lista.get(i).getQuantidade() %></td>
+	                         <td><%=lista.get(i).getLoteCodigo() %></td>
+	                         <td><%=sdf.format(lista.get(i).getDataVencimento()) %></td>
+	                      </tr>
+                      <%} %> 
                    </tbody> 
                    </table><!--style-tab-->
                 </div><!--info-prod-->

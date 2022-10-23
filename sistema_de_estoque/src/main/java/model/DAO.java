@@ -79,11 +79,12 @@ public class DAO {
 				String senha = rs.getString(4);
 				lista.add(new Usuario(id, cpf, senha, nome));
 			} 
+			con.close();
+			return lista;
 		} catch (Exception e) {
 			System.out.println(e);
 			return null;
-		}
-		return lista;	
+		}	
 	}
 
 	public ArrayList<Usuario> listarFuncionario(){
@@ -100,11 +101,12 @@ public class DAO {
 				String senha = rs.getString(4);
 				lista.add(new Usuario(id, cpf, senha, nome));
 			} 
+			con.close();
+			return lista;
 		} catch (Exception e) {
 			System.out.println(e);
 			return null;
 		}
-		return lista;
 	}
 	
 	public void novoProduto(Produto produto) {
@@ -251,11 +253,29 @@ public class DAO {
 		   while (rs.next()) {
 		      lista.add(new LoteVencendo(rs.getInt(1), rs.getString(2), rs.getInt(3)));
 		   }
-		   System.out.println(lista.get(0).getCodigoLote());
+		   con.close();
 		   return lista;
         } catch (Exception e) {
            System.out.println(e);
            return null;
         }
+	}
+	
+	public ArrayList<LoteEstoque> consultarEstoque(){
+	   ArrayList<LoteEstoque> lista = new ArrayList<>();
+	   String consultarEstoque = "SELECT produto.nome_prod, produto.cod_Prod, lote.quant_Lote, lote.Cod_Lote, lote.data_vencimento FROM produto, lote WHERE produto.cod_Prod = lote.Cod_Prod;";
+	   try {
+         Connection con = conectar();
+         PreparedStatement pst = con.prepareStatement(consultarEstoque);
+         ResultSet rs = pst.executeQuery();
+         while (rs.next()) {
+            lista.add(new LoteEstoque(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getDate(5)));
+         }
+         con.close();
+         return lista;
+      } catch (Exception e) {
+         System.out.println(e);
+         return null;
+      }
 	}
 }
