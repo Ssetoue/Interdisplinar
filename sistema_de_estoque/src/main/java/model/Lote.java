@@ -4,6 +4,7 @@ import java.util.Date;
 public class Lote {
 	private int codigo;
 	private String produto;
+	private int produtoCodigo;
 	private double precoLote;
 	private int quantidade;
 	private Date dataVal, dataFab;
@@ -91,8 +92,16 @@ public class Lote {
 	public String getProduto() {
 		return produto;
 	}
+	
+	public int getProdutoCodigo() {
+      return produtoCodigo;
+   }
 
-	@Override
+   public void setProdutoCodigo(int produtoCodigo) {
+      this.produtoCodigo = produtoCodigo;
+   }
+
+   @Override
 	public String toString() {
 		return "\ncodigo = " + this.codigo + "\nproduto = " + produto + "\nprecoLote = " + precoLote + "\nquantidade = "
 				+ quantidade + "\ndataVal= " + dataVal + "\ndataFab= " + dataFab;

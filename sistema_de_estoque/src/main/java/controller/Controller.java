@@ -21,7 +21,7 @@ import model.LoteEstoque;
 /**
  * Servlet implementation class Controller
  */
-@WebServlet(urlPatterns = { "/Controller", "/inicio", "/login", "/usuario", "/sair", "/home", "/novoProduto", "/novoUsuario", "/novoFornecedor", "/cadastroProduto", "/novoLote", "/consultarEstoque", "/atualizarUsuario"})
+@WebServlet(urlPatterns = { "/Controller", "/inicio", "/login", "/usuario", "/sair", "/home", "/novoProduto", "/novoUsuario", "/novoFornecedor", "/cadastroProduto", "/novoLote", "/consultarEstoque", "/atualizarUsuario", "/atualizarEstoque"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -114,6 +114,14 @@ public class Controller extends HttpServlet {
         } else if (action.equals("/atualizarUsuario")){
            if (Usuario.getAcesso().equals("Administracao")) {
               atualizarUsuario(request, response);
+          } else if (Usuario.getAcesso().equals("Funcionario")) { 
+              response.sendRedirect("home");
+          } else {
+              response.sendRedirect("Login.jsp");
+          }
+        } else if (action.equals("/atualizarEstoque")){
+           if (Usuario.getAcesso().equals("Administracao")) {
+              atualizarEstoque(request, response);
           } else if (Usuario.getAcesso().equals("Funcionario")) { 
               response.sendRedirect("home");
           } else {
@@ -235,5 +243,15 @@ public class Controller extends HttpServlet {
        request.setAttribute("loteEstoque", lista);
        RequestDispatcher rd = request.getRequestDispatcher("consulta-estoque.jsp");
        rd.forward(request, response);
+	}
+	
+	protected void atualizarEstoque(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	   Lote lote = new Lote();
+	   lote.setProdutoCodigo(Integer.parseInt(request.getParameter("CodigoProduto")));
+	   lote.setPrecoLote(Double.parseDouble(request.getParameter("Valor")));
+	   lote.setCodigo(Integer.parseInt(request.getParameter("CodigoLote")));
+	   lote.setQuantidade(Integer.parseInt(request.getParameter("Quantidade")));
+	   dao.atualizarEstoque(lote);
+	   response.sendRedirect("estoque.jsp");
 	}
 }
