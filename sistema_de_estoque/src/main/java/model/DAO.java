@@ -370,6 +370,7 @@ public class DAO {
 
    public void atualizarEstoque(Lote lote) {
       String atualizar = "UPDATE lote SET Cod_Prod=?, preco_Lote=?, quant_Lote=? WHERE Cod_Lote=?;";
+      String atualizar2 = "INSERT INTO historico VALUES (?, CURDATE());";
       try {
          Connection con = conectar();
          PreparedStatement pst = con.prepareStatement(atualizar);
@@ -378,9 +379,30 @@ public class DAO {
          pst.setInt(3, lote.getQuantidade());
          pst.setInt(4, lote.getCodigo());
          pst.executeUpdate();
+         PreparedStatement pst2 = con.prepareStatement(atualizar2);
+         pst2.setInt(1, lote.getCodigo());
+         pst2.executeUpdate();
          con.close();
       } catch (Exception e) {
          System.out.println(e);
+      }
+   }
+   
+   public ArrayList<Lote> atualizacao() {
+      ArrayList<Lote> lista = new ArrayList<>();
+      String atualizacao = "SELECT produto.nome_prod, lote.Cod_Prod, lote.quant_Lote, lote.preco_Lote, lote.Cod_Lote, historico.data_atual FROM produto, lote, historico WHERE lote.Cod_Prod = produto.cod_Prod AND historico.Cod_Lote = lote.Cod_Lote ORDER BY historico.data_atual DESC LIMIT 3;";
+      try {
+         Connection con = conectar();
+         PreparedStatement pst = con.prepareStatement(atualizacao);
+         ResultSet rs = pst.executeQuery();
+         while (rs.next()) {
+            lista.add(new Lote(rs.getString(1), rs.getInt(3), rs.getDouble(4), rs.getDate(6), rs.getInt(5), rs.getInt(2)));
+         }
+         con.close();
+         return lista;
+      } catch (Exception e) {
+         System.out.println(e);
+         return null;
       }
    }
 }

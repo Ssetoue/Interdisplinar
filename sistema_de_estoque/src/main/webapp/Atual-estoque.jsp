@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="model.Lote" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<% 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); %>
+<%
+  @ SuppressWarnings ("unchecked")
+  ArrayList<Lote> lista = (ArrayList<Lote>) request.getAttribute("loteAtual");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,14 +112,16 @@
                                     </tr>
                                 </thead>
                                 <tbody class="tbody">
+                                    <%--for (int i = 0; i < lista.size(); i++){--%>
                                     <tr>
-                                        <td>produto</td>
-                                        <td>00</td>
-                                        <td>15</td>
-                                        <td>15</td>
-                                        <td>00</td>
-                                        <td>00/00/0000</td>
-                                    </tr>                                  
+                                        <td><%--lista.get(i).getProduto() --%></td>
+                                        <td><%--lista.get(i).getProdutoCodigo() --%></td>
+                                        <td><%--lista.get(i).getQuantidade() --%></td>
+                                        <td><%--lista.get(i).getPrecoLote() --%></td>
+                                        <td><%--lista.get(i).getCodigo() --%></td>
+                                        <td><%--sdf.format(lista.get(i).getDataAtual()) --%></td>
+                                    </tr>
+                                    <%--} --%>                                  
                                 </tbody>
                             </table>
 

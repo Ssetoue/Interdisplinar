@@ -7,7 +7,7 @@ public class Lote {
 	private int produtoCodigo;
 	private double precoLote;
 	private int quantidade;
-	private Date dataVal, dataFab;
+	private Date dataVal, dataFab, dataAtual;
 	private String info, nomeForn;
 
 	public Lote() {
@@ -24,6 +24,15 @@ public class Lote {
 		this.info = info;
 		this.nomeForn = nomeForn;
 	}
+	
+	public Lote(String produto, int quantidade, double precoLote, Date dataAtual, int codigo, int produtoCodigo) {
+       this.produto = produto;
+       this.precoLote = precoLote;
+       this.quantidade = quantidade;
+       this.codigo = codigo;
+       this.dataAtual = dataAtual;
+       this.produtoCodigo = produtoCodigo;
+   }
 	
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
@@ -99,6 +108,14 @@ public class Lote {
 
    public void setProdutoCodigo(int produtoCodigo) {
       this.produtoCodigo = produtoCodigo;
+   }
+
+   public Date getDataAtual() {
+      return dataAtual;
+   }
+
+   public void setDataAtual(Date dataAtual) {
+      this.dataAtual = dataAtual;
    }
 
    @Override
